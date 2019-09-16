@@ -5,14 +5,15 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "Leads".
+ * This is the model class for table "leads".
  *
  * @property int $id
  * @property string $form_name
  * @property string $name
  * @property string $phone
+ * @property string $date_create
  *
- * @property LeadsSettings $leadsSettings
+ * @property LeadsSettings[] $leadsSettings
  */
 class Leads extends \yii\db\ActiveRecord
 {
@@ -21,7 +22,7 @@ class Leads extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Leads';
+        return 'leads';
     }
 
     /**
@@ -30,7 +31,8 @@ class Leads extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['form_name', 'phone'], 'required'],
+            [['form_name', 'phone', 'date_create'], 'required'],
+            [['date_create'], 'safe'],
             [['form_name', 'name', 'phone'], 'string', 'max' => 255],
         ];
     }
@@ -45,8 +47,13 @@ class Leads extends \yii\db\ActiveRecord
             'form_name' => Yii::t('app', 'Form Name'),
             'name' => Yii::t('app', 'Name'),
             'phone' => Yii::t('app', 'Phone'),
+            'date_create' => Yii::t('app', 'Date Create'),
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getLeadsSettings()
     {
         return $this->hasOne(LeadsSettings::className(), ['leads_id' => 'id']);

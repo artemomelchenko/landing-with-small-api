@@ -2,9 +2,12 @@
 
 namespace backend\controllers;
 
+use common\models\LeadsSettings;
 use Yii;
 use common\models\Leads;
 use common\models\LeadsSearch;
+use yii\filters\AccessControl;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -20,11 +23,20 @@ class LeadsController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index'],
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['view'],
+                        'roles' => ['@',],
+                    ],
+            ],
             ],
         ];
     }
@@ -37,7 +49,7 @@ class LeadsController extends Controller
     {
         $searchModel = new LeadsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+//            VarDumper::dump($dataProvider,10,1);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -52,8 +64,9 @@ class LeadsController extends Controller
      */
     public function actionView($id)
     {
+        $model = Leads::find()->with('leadsSettings')->where(['id' => $id])->one();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
