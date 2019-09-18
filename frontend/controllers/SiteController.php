@@ -5,6 +5,8 @@ use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\helpers\Html;
+use yii\helpers\VarDumper;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -74,6 +76,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if(Yii::$app->request->isAjax()){
+            VarDumper::dump(Yii::$app->request->post());
+        }
         return $this->render('index');
     }
 
