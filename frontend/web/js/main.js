@@ -312,10 +312,12 @@ displayModal();
     $('.popup').submit(function(event){
       event.preventDefault();
       let path = window.location.pathname;
+      var csrfToken = $('meta[name="csrf-token"]').attr("content");
       $.ajax({
         url: path,
         dataType: 'json',
         type: 'POST',
+        data: {param1: 'vasa', '_csrf-frontend': csrfToken},
         success: function(response){
           document.getElementById('gratitude').classList.add('active');
         }

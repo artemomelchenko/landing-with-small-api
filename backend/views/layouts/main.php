@@ -48,7 +48,6 @@ AppAsset::register($this);
     <?php if (Yii::$app->user->identity): ?>
         <?= $this->render('footer') ?>
     <?php endif; ?>
-    <!--    --><? //= $this->render('right') ?>
 
 </div>
 
