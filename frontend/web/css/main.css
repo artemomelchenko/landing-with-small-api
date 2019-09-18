@@ -1717,13 +1717,12 @@ footer span{
 .popup, #gratitude{
 	display: none;
 	width: 25%;
-	height: 45%;
 	position: absolute;
 	left: 37.5%;
 	top: 27.5%;
 	z-index: 999;
-    box-sizing: border-box;
-    text-align: center;
+  box-sizing: border-box;
+  text-align: center;
 	background-color: #fff;
 	text-transform: uppercase;
 	opacity: 0;
@@ -1803,8 +1802,6 @@ footer span{
 		margin-top: 0vw;
 		padding-top: 26px;
 }
-
-
 #first_name-error, #phone-error, .error {
 	text-decoration: none;
 	color: #FA0105;
@@ -1816,4 +1813,4 @@ footer span{
 	font-size: 10px;
 }
 
-	
+
