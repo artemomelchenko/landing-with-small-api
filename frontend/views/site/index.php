@@ -1,9 +1,11 @@
 <?php
-
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 
 $this->title = 'ТопДах';
-?>
+
+ ?>
 </div><!-- header_grid_container end-->
 <h1 class="heading_text">покрівельні матеріали</h1>
 				<div class="header_heading_content">
@@ -169,7 +171,8 @@ $this->title = 'ТопДах';
 								</defs>
 							</svg>
 							<h3 class="heading_form">завантажити каталог</h3>
-							<form id="first_form" class="first_form"  action="" enctype="multipart/form-data">
+
+                                <?= Html::beginForm('', 'post', ['class'=>'first_form','enctype' => 'multipart/form-data','id'=>'first_form']) ?>
 								<label for="firstName" class="first_name"> ваше ім'я:</label>
 								<input type="text" name="first_name" value="" minlength="2" required>
 								<label for="phone" class="phone"> ваш номер:</label>
@@ -179,7 +182,8 @@ $this->title = 'ТопДах';
 									<img class="locker" src="img/Frame.png" alt="locker image">
 									<span class="saif">ваші данні в безпеці</span>
 								</div>
-							</form>
+                                 <?= Html::endForm() ?>
+
 							<svg class="down_svg" width="124" height="43" viewBox="0 0 124 43" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<path d="M18.5 32L8.00002 43L0.499999 32L18.5 32Z" fill="#7A010A" />
@@ -409,7 +413,9 @@ $this->title = 'ТопДах';
 									вашої кровлі
 								</h3>
 								<div class="wrapper_form">
-									<form id="second_form" class="second_form grid" action="">
+
+                                        <?= Html::beginForm('', 'post', ['class'=>'second_form grid',
+                                                                                                'id'=>'second_form']) ?>
 										<div class="form_field full_width ">
 											<label for="manifacturer" class="manifacturer"> виробник:</label>
 											<select size="1" name="manifacturer">
@@ -439,7 +445,8 @@ $this->title = 'ТопДах';
 										<div class="form_field full_width">
 											<button class="btn_product" type="submit"> <span class="dn">отримати</span>	 розрахунок</button>
 										</div>
-									</form>
+                                        <?= Html::endForm() ?>
+
 								</div>
 								<div class="text_center">
 									<img class="locker" src="img/Frame.png" alt="locker image">

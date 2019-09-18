@@ -58,4 +58,10 @@ class Leads extends \yii\db\ActiveRecord
     {
         return $this->hasOne(LeadsSettings::className(), ['leads_id' => 'id']);
     }
+    public function getMessageTelegram(){
+
+        $token ='981466372:AAG_XaJxqOTydNivZP-2zbTeoQLDkXDKkN0';
+        $chat_id = '-396864039';
+
+    }
 }

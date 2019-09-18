@@ -42,6 +42,7 @@ return [
             'rules' => [
                 //['class' => 'frontend\components\ClassUrlRule'],
                 '' => 'site/index',
+                'pdf' =>'site/pdf',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
             ],
         ]
