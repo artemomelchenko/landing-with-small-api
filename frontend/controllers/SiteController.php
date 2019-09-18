@@ -17,6 +17,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 
+
 /**
  * Site controller
  */
@@ -76,7 +77,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if(Yii::$app->request->isAjax()){
+        if(Yii::$app->request->isAjax){
             VarDumper::dump(Yii::$app->request->post());
         }
         return $this->render('index');
