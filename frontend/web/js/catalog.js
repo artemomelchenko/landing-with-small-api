@@ -163,7 +163,7 @@ function catalogBuilder() {
         let tr = document.createElement("tr");
         tr.innerHTML = `
                 <td class="title">${res[i].name}</td>
-                <td class="value">${res[i].value}</td>`;
+                <td class="value ${(i == 0)?'premium':''}">${res[i].value}</td>`;
         table.appendChild(tr);
       }
     };
