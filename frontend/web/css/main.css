@@ -330,7 +330,7 @@ header {
 }
 
 header::before {
-	content: url(img/bg_header.png);
+	content: url(../img/bg_header.png);
 	z-index: 4;
 	position: absolute;
 	bottom: 0vw;
@@ -441,13 +441,13 @@ header::before {
 #adventage {
 	height: 100vh;
 	box-sizing: border-box;
-	background-image: url(img/bg_section_2.png);
+	background-image: url(../img/bg_section_2.png);
 	background-repeat: no-repeat;
 	background-position: left center;
 	background-size: cover;
 	position: relative;
 	padding-top: 0; 
-	bottom: 11px;
+	/* bottom: 11px; */
 	color: var(--main_white);
 }
 .over_line{
@@ -550,7 +550,7 @@ header::before {
 	justify-content: center;
 	height: 100vh;
 	font-size: 1em;
-	background-image: url(img/bg_rectangle.svg);
+	background-image: url(../img/bg_rectangle.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 85%;
@@ -1185,7 +1185,7 @@ header::before {
 
 #work_process {
 	height: 100vh;
-	background-image: url(img/bg_wprk_process.png);
+	background-image: url(../img/bg_wprk_process.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -1280,7 +1280,7 @@ header::before {
 
 #gallery {
 	height: 100vh;
-	background-image: url(img/bush.png);
+	background-image: url(../img/bush.png);
 	background-repeat: no-repeat;
 	background-position: bottom;
 	color: var(--main_black);
@@ -1306,27 +1306,27 @@ header::before {
 }
 
 .gallery_foto1 {
-	background-image: url(img/dom1.png);
+	background-image: url(../img/dom1.png);
 	grid-column: 2/4;
 	grid-row: 1/3;
 }
 
 .gallery_foto2 {
-	background-image: url(img/3.png);
+	background-image: url(../img/3.png);
 }
 
 .gallery_foto3 {
-	background-image: url(img/dom2.png);
+	background-image: url(../img/dom2.png);
 }
 
 .gallery_foto4 {
 	grid-column: 4 /5;
-	background-image: url(img/dom4.png);
+	background-image: url(../img/dom4.png);
 	background-color: #000;
 }
 
 .gallery_foto5 {
-	background-image: url(img/dom5.png);
+	background-image: url(../img/dom5.png);
 }
 
 .gallery_foto1,
@@ -1436,7 +1436,7 @@ header::before {
 
 #reviews{
 	height: 100vh;
-	background-image: url(img/bg_section_2.png);
+	background-image: url(../img/bg_section_2.png);
 	background-repeat: no-repeat;
 	background-position: left center;
 	background-size: cover;
@@ -1476,7 +1476,7 @@ header::before {
 
 #calculator{
 	height: 100vh;
-	background-image: url(img/calculator.png);
+	background-image: url(../img/calculator.png);
 	background-repeat: no-repeat;
 	background-position: right ;
 	background-size: cover;
@@ -1590,7 +1590,7 @@ header::before {
 
 #footer{
 height: 100vh;
-background-image: url(img/bg_footer.png);
+background-image: url(../img/bg_footer.png);
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;

@@ -6,7 +6,7 @@
     line-height: 2.5rem;
   }
   header::before {
-   content: url(img/bg_2560.png);
+   content: url(../img/bg_2560.png);
  }
   .discount_text {
    padding-top: 2vw;
@@ -162,7 +162,7 @@
   /* HEADER */
   header {
     height: 100vh;
-    background-image: url(img/bg_header.png);
+    background-image: url(../img/bg_header.png);
   } 
   header::before {
     content: ''!important;
@@ -453,7 +453,7 @@ font-size: 14px;
 }
 #gallery {
 	height: 100vh;
-	background-image: url(img/bush.png);
+	background-image: url(../img/bush.png);
 	background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100%;
@@ -1619,7 +1619,7 @@ screen and (min-height : 1366px) {
   }
 
   header {
-    background-image: url(img/bg_tablet.png);
+    background-image: url(../img/bg_tablet.png);
   }
 
   .header_grid_container {
@@ -1949,7 +1949,7 @@ select {
     width: 100%;
 }
   header {
-    background-image: url(img/bg_header_phone.png);
+    background-image: url(../img/bg_header_phone.png);
   }
   .header_grid_container {
     grid-template-columns: 50% 50%;
@@ -2259,7 +2259,7 @@ select {
 
    #calculator{
      height: auto;
-     background-image: url(img/bg_calcul_phone.png);
+     background-image: url(../img/bg_calcul_phone.png);
      background-position: bottom ;
      background-size: 100%;  
    }
@@ -2447,7 +2447,7 @@ select {
     /* SECTION CATALOG PRODUCT*/
 
     #catalog_product{
-      background-image: url(img/bg_catalog_phone.png);
+      background-image: url(../img/bg_catalog_phone.png);
       background-size: 100%;
       background-position:  bottom;
       height: auto;

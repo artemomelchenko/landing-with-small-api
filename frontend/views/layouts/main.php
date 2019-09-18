@@ -25,6 +25,27 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+<div id="eclipse"></div>
+						<div id="gratitude" class="">
+							<img src="img/success.svg" alt="">
+							<h3>дякуємо</h3>
+							<p>вашу заявку успішно <br/> відправлено</p>
+						</div>
+						<div class="popup">
+								<div class="button_close"></div>
+							<h3 class="heading_form">отримати знижку</h3>
+							<form id="popup_form" class="first_form" method="POST" action="">
+								<label for="first_name" class="first_name"> ваше ім'я:</label>
+								<input id="firstNname" type="text" name="first_name"  minlength="2" required >
+								<label for="phone" class="phone"> ваш номер:</label>
+								<input id="phone" class="tel" type="text" name="phone" required>
+								<button class="btn_product_discont" type="submit">надіслати</button>
+								<div class="decoration">
+									<img class="locker" src="img/Frame.png" alt="locker image">
+									<span class="saif">ваші данні в безпеці</span>
+								</div>
+							</form>
+						</div>
 <main>
     <ul id="section_scroll" class="navigator">
         <li class="nav-item active" data-order="1"><a href="#header">Головна</a><span class="nav-line"></span></li>
@@ -68,6 +89,16 @@ AppAsset::register($this);
 
         <?= $content ?>
                 <footer id="footer">
+                <div class="background-animation white">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
                     <div class="vertical_text">
                         <p> контакти</p>
                     </div>
