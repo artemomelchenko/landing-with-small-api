@@ -82,7 +82,7 @@ AppAsset::register($this);
                 </div>
                 <div class="header_phone">
                     <ul>
-                        <li><img src="img/icon_phone.png" alt="icon_phone"></li>
+                        <li> <a href="tel:+380000000000"> <img src="img/icon_phone.png" alt="icon_phone"></a></li>
                         <li><span header_location_text>0 50 50 50 255 <br> 0 50 50 50 255</span></li>
                     </ul>
                 </div>
@@ -135,7 +135,7 @@ AppAsset::register($this);
                                 </div>
                                 <div class="contact_item">
                                     <div class="item_wrapper">
-                                        <img src="img/phone=1.png" alt="phone icon">
+                                        <img src="img/email.png" alt="phone icon">
                                         <span class="contact">пошта</span>
                                     </div>
                                     <div class="center">

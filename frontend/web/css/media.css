@@ -651,7 +651,7 @@ font-size: 14px;
   }
   .btn_work_process {
     font-size: 10px;
-    bottom: 2vw;
+    bottom: -3%;
   }
   .btn_work_process a{
     font-size: 11px;
@@ -1075,7 +1075,7 @@ screen and (min-height : 1366px) {
 
   .content_form {
     width: 80%;
-    margin: 0 25%;
+    margin: 0 30%;
   }
 
   .backgraund_img img {
@@ -1430,7 +1430,7 @@ screen and (min-height : 1366px) {
     padding-left: 0px;
   }
   .btn_work_process {
-   bottom: 5%;
+   bottom: 0;
   }
   .btn_work_process a{
     font-size: 12px;
@@ -1697,7 +1697,6 @@ screen and (min-height : 1366px) {
 
   .advantage_grid_container {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0px;
     padding-top: 6vw;
   }
 
@@ -1867,14 +1866,14 @@ screen and (min-height : 1366px) {
 .calculator_grid_container{
   padding-top: 0px;
 }
-.icons {
-  /* padding-top: 100px; */
-}
+
 
 .calculator_itoms img {
   height: 56px;
 }
-
+#calculator .content_form{
+  width: 100%;
+}
 .itom_text {
   font-size: 14px;
   white-space: normal;
@@ -1946,6 +1945,13 @@ select {
   min-height: 30vh;
   margin-top: 250px;
 }
+.item_wrapper {
+  padding-bottom: 0;
+}
+.center {
+  
+  padding-bottom: 20px;
+}
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 640px) {
@@ -1987,6 +1993,7 @@ select {
 }
   header {
     background-image: url(../img/bg_header_phone.png);
+    background-position: center;
   }
   .header_grid_container {
     grid-template-columns: 50% 50%;
@@ -2128,7 +2135,7 @@ select {
    /* SECTION CATALOG PROFUCT*/
 
    .backgraund_img img {
-    height: 35vh;
+    height: 29vh;
 }
    .content_form{
     width: 100%;
@@ -2146,14 +2153,18 @@ select {
   .heading_form{
     font-size: 16px
   }
+  /* .form_catalog_product {
+    min-width: 100%;
+    border: none;
+  }
+  .decoration{
+    display: none;
+  } */
   .first_form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    padding: 0 40px 17.92px 40px;
+    padding: 0 40px 18px 40px;
   }
   .phone {
     margin-top: 20px;
@@ -2341,6 +2352,33 @@ select {
   margin-bottom: 30px;
 }
 
+
+.calculator_grid_container {
+  width: 100%;
+  padding: 0;
+
+}
+
+.form_calculator{
+  border: none;
+  background: none;
+  width: 100%;
+}
+.form_field .btn_product {
+  padding: 10px 76px;
+}
+
+.heading_form {
+  line-height: 24px;
+  padding: 20px 0;
+}
+.second_form .btn_product{
+  line-height: 15px;
+}
+.dn{
+  display: none;
+}
+
 /* SECTION CULCULATOR END */
 
 /* FOOTER*/
@@ -2367,10 +2405,7 @@ select {
 .item_wrapper span {
   padding-top: 10px;
 }
-  .img_item img {
-      width: 56vw;
-      min-height: 20vh;
-  }
+ 
   .img_box{
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
@@ -2379,7 +2414,7 @@ select {
   }
   .img_item img {
     width: 32vw;
-    min-height: 20vh;
+    min-height: 15vh;
 }
    
   .center{
@@ -2430,21 +2465,25 @@ select {
 .btn_product_discont {
   margin: 26px 0;
 }
+.header_grid_container {
+  margin: 0 9vw 5% 12.5vw;
+}
   .heading_text {
-    line-height: 5vh;
+    line-height: 40px;
     white-space: normal;
+    font-size: 29px;
   }
   .text {
-    padding-top: 40px;
+    padding-top: 70px;
+    font-size: 18px;
   }
   .discount_text {
-    padding-top: 0px;
+    padding-top: 10px;
     font-size: 12px;
   }
   
   .header_phone img {
-    width: 8vw;
-    height: 6vh;
+    width: 10vw; 
   }
     
   .discount_text_percent{
@@ -2456,7 +2495,7 @@ select {
   .btn_header {
     padding: 5px 30px;
     font-size: 12px;
-    margin-top: 15px;
+    margin-top: 17px;
 }
   
   /* SECTION ADVANTAGE */
@@ -2493,7 +2532,7 @@ select {
       height: auto;
     }
     .content_form {
-      margin-bottom: 300px;
+      margin-bottom: 245px;
   }
   .heading_form{
     font-size: 16px
@@ -2523,6 +2562,7 @@ select {
 
   .work_process_grid_container {
     grid-gap: 10px;
+
    }
    
    .horizontal_namber {
@@ -2547,8 +2587,13 @@ select {
 
    .work_process_content{
      padding: 0;
-     
+     top: 0; 
    }
+
+.work_process_content p {
+    height: 100%;
+    font-size: 12px;
+}
 
    .btn_work_process a{
      padding: 12px 24px;
@@ -2584,35 +2629,7 @@ select {
   font-size: 12px;
   line-height: 18px;
   padding: 10px 0;
-  width: 90%;
-}
-#calculator .headihg_advantage{
-  width: 70%;
-}
-.calculator_grid_container {
-  width: 100%;
-  padding: 0;
-
-}
-
-.form_calculator{
-  border: none;
-  background: none;
-  width: 100%;
-}
-.form_field .btn_product {
-  padding: 10px 76px;
-}
-
-.heading_form {
-  line-height: 18px;
-  padding: 20px 0;
-}
-.second_form .btn_product{
-  line-height: 15px;
-}
-.dn{
-  display: none;
+  width: 60%;
 }
 
 #footer{
