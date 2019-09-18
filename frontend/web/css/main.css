@@ -447,7 +447,7 @@ header::before {
 	background-size: cover;
 	position: relative;
 	padding-top: 0; 
-	bottom: 11px;
+	/* bottom: 11px; */
 	color: var(--main_white);
 }
 .over_line{

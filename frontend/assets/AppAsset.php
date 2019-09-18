@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
         '//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js',
         'js/owl.carousel.min.js',
         '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
+        'js/jquery.maskedinput.min.js',
         'js/wheelIndicator.js',
         'js/data.js',
         'js/catalog.js',
