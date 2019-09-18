@@ -39,14 +39,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'form_name',
                     'name',
                     'phone',
-
-//                    'leadsSettings.manufacturer',
-//                    'leadsSettings.thickness',
-//                    'leadsSettings.square',
-//                    'leadsSettings.comment',
                     [
                         'label'=>'',
-                        'format'=>'html', // Возможные варианты: raw, html
+                        'format'=>'html',
                         'content'=> function($model){
                           return  Html::a('<i class="fa fa-eye" aria-hidden="true">',[ '/leads/view','id' => $model->id.'']);
                         },
