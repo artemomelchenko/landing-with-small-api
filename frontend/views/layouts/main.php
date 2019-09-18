@@ -34,7 +34,7 @@ AppAsset::register($this);
 						<div class="popup">
 								<div class="button_close"></div>
 							<h3 class="heading_form">отримати знижку</h3>
-<!--							<form id="popup_form" class="first_form" method="POST" action="">-->
+
                                 <?= Html::beginForm('', 'post', ['class'=>'first_form',
                                                                                     'id'=>'popup_form']) ?>
 								<label for="first_name" class="first_name"> ваше ім'я:</label>
@@ -47,7 +47,7 @@ AppAsset::register($this);
 									<span class="saif">ваші данні в безпеці</span>
 								</div>
                                 <?= Html::endForm() ?>
-<!--							</form>-->
+
 						</div>
 <main>
     <ul id="section_scroll" class="navigator">

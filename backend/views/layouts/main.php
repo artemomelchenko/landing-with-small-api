@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use backend\assets\AppAsset;
@@ -27,31 +28,29 @@ AppAsset::register($this);
 <body class="<!--hold-transition sidebar-mini-->">
 <?php $this->beginBody() ?>
 <div class="wrapper">
-<?php if(Yii::$app->user->identity):?>
-    <?= $this->render('header') ?>
-    <?= $this->render('left') ?>
-<?php endif;?>
+    <?php if (Yii::$app->user->identity): ?>
+        <?= $this->render('header') ?>
+        <?= $this->render('left') ?>
+    <?php endif; ?>
 
-    <!-- Content Wrapper. Contains page content -->
-    <?php if(Yii::$app->user->identity):?>
-    <div class="content-wrapper">
-        <?= $content ?>
-    </div>
-    <?php endif;?>
-
-    <?php if(Yii::$app->user->isGuest):?>
-<!--        <div class="content-wrapper">-->
+    <?php if (Yii::$app->user->identity): ?>
+        <div class="content-wrapper">
             <?= $content ?>
-<!--        </div>-->
-    <?php endif;?>
+        </div>
+    <?php endif; ?>
 
-    <?php if(Yii::$app->user->identity):?>
-    <?= $this->render('footer') ?>
-<?php endif;?>
-<!--    --><?//= $this->render('right') ?>
+    <?php if (Yii::$app->user->isGuest): ?>
+
+        <?= $content ?>
+
+    <?php endif; ?>
+
+    <?php if (Yii::$app->user->identity): ?>
+        <?= $this->render('footer') ?>
+    <?php endif; ?>
+    <!--    --><? //= $this->render('right') ?>
 
 </div>
-
 
 
 <?php $this->endBody() ?>
