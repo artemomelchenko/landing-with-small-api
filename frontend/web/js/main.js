@@ -1,21 +1,50 @@
 window.addEventListener("DOMContentLoaded", event => {
-  if(screen.width > 1024){
+  if(isDesktop()){
     sectionScrollInit();
     document.getElementsByTagName('main')[0].classList.add('desktop');
+    mobileBackgroundLines(8);
+  }
+  else {
+    let count = screen.width <= 500?3:5;
+    mobileBackgroundLines(count);
   }
    viewPortInfo.backGroundLines.classList.add('active');
    catalogSectionInit();
   });
 
+  function isDesktop() {
+     return screen.width <= 1024?false:true;
+  }
+
+  function mobileBackgroundLines(count){
+    const start= new Date().getTime();
+    let backgrounds = Array.from(document.getElementsByClassName('background-animation'));
+    const buildLine = (el) => {
+        for(let i = 0; i < count; i++) {
+          let line = document.createElement('div');
+          line.className = 'line';
+          el.appendChild(line);
+        }
+    }
+    backgrounds.forEach(function(el) {
+      el.innerHTML = null;
+      buildLine(el);
+    });
+    const end = new Date().getTime();
+    console.log(`SecondWay: ${end - start}ms`);
+  }
+
   var viewPortInfo = {
     isWhiteTheme: true,
     backGroundLines : document.getElementsByClassName('background-animation')[0]
   }
-
+  
   function catalogSectionInit() {
-    const data = Object.assign({}, response);
+    const data = Object.assign({}, metalTile);
     const catalog = catalogBuilder();
-    catalog.render(data);
+    catalog.setBrands(data);
+    catalog.render();
+    catalog.navBrandSlider();
   }
   
   function sectionScrollInit() {
@@ -33,8 +62,8 @@ window.addEventListener("DOMContentLoaded", event => {
         scrollData._current = value;
       },
       navItems: Array.prototype.slice.call(container.getElementsByTagName('li')),
-      activeSection: container.getElementsByClassName('active')[0],
-      
+      activeSection: container.getElementsByClassName('active')[0]
+
     };
     const disableSection = () => {scrollData.activeSection.classList.remove('active')};
   
@@ -98,8 +127,6 @@ window.addEventListener("DOMContentLoaded", event => {
       }
     });
 
-    console.log(indicator.getOption('elem'));
-  
     function init() {
       let items =  Array.from(container.getElementsByTagName('li'));
       items.forEach(function(li){
@@ -188,8 +215,9 @@ window.addEventListener("DOMContentLoaded", event => {
   $(".circle_namber").click(function () {
 		$(".circle_namber").removeClass("circle_namber_activ", "owl-item" );
 		$(this).addClass("circle_namber_activ");
-	})
- 
+  })
+  
+//  OWL CARUSEL
   var $homeSlider = $(".advantage_slider, .work_process_slider");
 
   $(window).resize(function() {
@@ -222,6 +250,87 @@ window.addEventListener("DOMContentLoaded", event => {
   function destroyHomeSlider() {
     $homeSlider.trigger("destroy.owl.carousel").removeClass("owl-carousel");
   }
+  // OWL CARUSEL END
+
+
   
+
+  // FORM VALIDATION
+function displayModal(){
+  const eclipse = document.getElementById('eclipse');
+  const btns = Array.from(document.getElementsByClassName('modal'));
+  const closeBtn = Array.from(document.getElementsByClassName('button_close'));
+
+  eclipse.addEventListener('click', function() {
+    document.getElementsByClassName('popup active')[0].classList.remove('active');
+    eclipse.classList.remove('active');
+    $('input').val('');
+  })
+  btns.forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      let target = e.target;
+      let popup = document.getElementsByClassName('popup')[0];
+
+      if(target.tagName == 'A') {
+        popup.getElementsByTagName('h3')[0].innerHTML = 'ОТРИМАТИ ЗНИЖКУ';
+        popup.classList.add('active');
+      }
+      else {
+        popup.getElementsByTagName('h3')[0].innerHTML = 'ОТРИМАТИ РОЗРАХУНОК';
+        popup.classList.add('active');
+      }
+      console.log(e.target);
+      eclipse.classList.add('active');
+    })
+  });
+
+  closeBtn.forEach(function(el) {
+    el.addEventListener('click', function() {
+      let form = el.parentElement;
+      $('input').val('');
+      eclipse.classList.remove('active');
+      form.classList.remove('active');
+    });
+  })
+  console.log(btns);
+}
+
+displayModal();
+  $(document).ready(function() {
+    // POPUP
+      // $(".btn_header").click(function () {
+      //   $(".popup").show();
+      // })
+      // $(".button_close").click(function(){
+      //   $(".popup").hide();
+      // })
+      // POPUP END
+    $(".tel").mask("+38(099) 999-99-99");
+
+
+    $('.popup').submit(function(event){
+      event.preventDefault();
+      let path = window.location.pathname;
+      $.ajax({
+        url: path,
+        dataType: 'json',
+        type: 'POST',
+        success: function(response){
+          document.getElementById('gratitude').classList.add('active');
+        }
+      });
+    })
+  });
  
-  // , .work_process_slider
+  
+     
+     
+ 
+      
+
+    
+
+ 
+  
+  
