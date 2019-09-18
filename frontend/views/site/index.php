@@ -124,8 +124,14 @@ $this->title = 'ТопДах';
 										<table class="items-propery">
 											
 										</table>
-										<button class="btn_main">Дізнатись ціну</button>
-								</div>
+                                        <button class="btn_main">Дізнатись ціну</button>
+                                </div>
+                                <div class="info-wrap">
+                                    <div id="material-info">
+                                        <h4>Преміум матеріал</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                                    </div>
+                                </div>
 						</div>
 					</div>
 				</div>

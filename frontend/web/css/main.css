@@ -631,6 +631,8 @@ header::before {
 	align-items: flex-end;
 }
 
+
+
 .brand-info  {
 	width: 40%;
 }
@@ -899,6 +901,7 @@ header::before {
 }
 
 .brand-description caption {
+	position: relative;
 	height: 20%;
 	font-size: 1.4vw;
 	/* line-height: 2em; */
@@ -923,6 +926,21 @@ header::before {
 	display: none;
 }
 
+.brand-description td.premium {
+	color: red;
+	position: relative;
+	padding: 0;
+}
+
+.brand-description td.premium:after {
+	content: url(../img/button_question.svg);
+	position: absolute;
+	width: 30px; 
+	height: 30px;
+	transform: translate(25%, -10%);
+	box-sizing: border-box;
+}
+
 .items-price .price {
 	font-size: 1.875vw;
 	font-weight: bold;
@@ -932,10 +950,35 @@ header::before {
  tbody tr:first-child{
 	background-color: red!important;
 }
-.premium_wrap {
 
+.info-wrap {
+	display: flex;
+	/* justify-content: center; */
+	align-items: flex-end;
+	width: 50%;
+	height: 90%;
+	font-size: 0.833vw;
+  }
+
+#material-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: center; */
+	width: 80%;
+	padding: 5%;
+	background-color: #fff;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
 }
 
+#material-info h4 {
+	color: var(--main_red);
+	text-align: center;
+}
+#material-info p {
+	text-align: center;
+}
 
 
 /* [class^="arrow-"] {
