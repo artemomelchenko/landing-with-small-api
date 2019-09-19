@@ -191,25 +191,25 @@ window.addEventListener("DOMContentLoaded", event => {
   
 
 // GOOGLE MAP 
-function initMap() {
-    var location = 
-        {
-            lat: 48.2835717, 
-            lng: 25.936441
-        };
-    var map = new google.maps.Map(
-        document.getElementById('map'), 
-        {
-            zoom: 4, 
-            center: location
-        });
+// function initMap() {
+//     var location = 
+//         {
+//             lat: 48.2835717, 
+//             lng: 25.936441
+//         };
+//     var map = new google.maps.Map(
+//         document.getElementById('map'), 
+//         {
+//             zoom: 4, 
+//             center: location
+//         });
     
-    var marker = new google.maps.Marker(
-        {
-            position: location, 
-            map: map
-        });
-  }
+//     var marker = new google.maps.Marker(
+//         {
+//             position: location, 
+//             map: map
+//         });
+//   }
 
 
   // $(".circle_namber").click(function () {
@@ -258,7 +258,8 @@ function initMap() {
     });
 
     $(".work_process_content ").slick({
-      arrows: true
+      arrows: true,
+      dots: true
     });    
   }
 

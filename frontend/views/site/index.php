@@ -252,7 +252,7 @@ $this->title = 'ТопДах';
 							<span class="circle_namber">4</span>
 						</div>
 	
-						<div class="work_process_content grid owl-theme work_process_slider">
+						<div class="work_process_content grid work_process_slider">
 							<div class="content_item">
 							<h2>залишаєте заявку на прорахунок</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
@@ -345,7 +345,7 @@ $this->title = 'ТопДах';
 				<div class="over_line">
 					<h2 class="headihg_advantage pl">відгуки наших клієнтів</h2>
 					<div class="reviews_grid_container">
-						<div class="video">
+						<!-- <div class="video">
 							<iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0"
 								allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
@@ -356,7 +356,7 @@ $this->title = 'ТопДах';
 						<div class="video">
 							<iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0"
 								allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</section><!-- section end -->

@@ -920,6 +920,7 @@ header::before {
 .brand-description tr {
 	display: flex;
 	justify-content: space-between;
+	font-weight: 500;
 }
 
 .brand-description tr.hidden {
