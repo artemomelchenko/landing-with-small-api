@@ -527,7 +527,7 @@ font-size: 14px;
 }
 
 .img_item img{
-	width: 16vw;
+	width: 17vw;
 	min-height: 22vh;
 }
 
@@ -1042,6 +1042,15 @@ font-size: 14px;
     padding-left: 10px;
     font-size: 14px;
   }
+  .img_box{
+    margin: 0;
+  }
+
+.contact_info {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin: 0;
+}
 }
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1024px) and (min-height : 1366px) {
@@ -1896,6 +1905,10 @@ font-size: 14px;
 select {
   width: 100%;
   height: 30px;
+  grid-column: 1 / 3;
+}
+.second_form .area_{
+  width: 207%;
 }
 
 .second_form .btn_product {

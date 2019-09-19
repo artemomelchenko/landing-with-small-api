@@ -16,8 +16,8 @@ class AppAsset extends AssetBundle
           '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
           '//fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap',
         'css/normalize.css',
-        'css/owl.carousel.min.css',
-        'css/owl.theme.default.min.css',
+        // 'css/owl.carousel.min.css',
+        // 'css/owl.theme.default.min.css',
         'css/main.css',
         'css/media.css',
     ];
