@@ -35,7 +35,7 @@ AppAsset::register($this);
 								<div class="button_close"></div>
 							<h3 class="heading_form">отримати знижку</h3>
 
-                                <?= Html::beginForm('', 'post', ['class'=>'first_form', 'id'=>'popup_form', 'data-form' => 'getDiscont']) ?>
+                                <?= Html::beginForm('', 'post', ['class'=>'first_form', 'id'=>'popup_form']) ?>
 								<label for="first_name" class="first_name"> ваше ім'я:</label>
 								<input id="firstNname" class="name" type="text" name="first_name"  minlength="2" required >
 								<label for="phone" class="phone"> ваш номер:</label>

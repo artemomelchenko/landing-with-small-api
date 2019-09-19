@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", event => {
+  console.log('---------' + window.location);
   if(isDesktop()){
     sectionScrollInit();
     document.getElementsByTagName('main')[0].classList.add('desktop');
@@ -191,25 +192,25 @@ window.addEventListener("DOMContentLoaded", event => {
   
 
 // GOOGLE MAP 
-function initMap() {
-    var location = 
-        {
-            lat: 48.2835717, 
-            lng: 25.936441
-        };
-    var map = new google.maps.Map(
-        document.getElementById('map'), 
-        {
-            zoom: 4, 
-            center: location
-        });
+// function initMap() {
+//     var location = 
+//         {
+//             lat: 48.2835717, 
+//             lng: 25.936441
+//         };
+//     var map = new google.maps.Map(
+//         document.getElementById('map'), 
+//         {
+//             zoom: 4, 
+//             center: location
+//         });
     
-    var marker = new google.maps.Marker(
-        {
-            position: location, 
-            map: map
-        });
-  }
+//     var marker = new google.maps.Marker(
+//         {
+//             position: location, 
+//             map: map
+//         });
+//   }
 
 
   // $(".circle_namber").click(function () {
@@ -258,7 +259,8 @@ function initMap() {
     });
 
     $(".work_process_content ").slick({
-      arrows: true
+      arrows: true,
+      dots: true
     });    
   }
 
@@ -285,10 +287,12 @@ function displayModal(){
 
       if(target.tagName == 'A') {
         popup.getElementsByTagName('h3')[0].innerHTML = 'ОТРИМАТИ ЗНИЖКУ';
+        popup.getElementsByTagName('form')[0].setAttribute('data-form','getDiscont');
         popup.classList.add('active');
       }
       else {
         popup.getElementsByTagName('h3')[0].innerHTML = 'ОТРИМАТИ РОЗРАХУНОК';
+        popup.getElementsByTagName('form')[0].setAttribute('data-form','getPrice');
         popup.classList.add('active');
       }
       console.log(e.target);
@@ -318,19 +322,19 @@ displayModal();
       // })
       // POPUP END
     $(".tel").mask("+38(099) 999-99-99");
-
-
+ 
     $('.popup').submit(function(event){
       event.preventDefault();
-      let path = window.location.pathname;
+      let path = window.location.pathname; 
       let csrfToken = $('meta[name="csrf-token"]').attr("content");
       let formsData = {
         "form-name": event.target.getAttribute('data-form'),
         "name":  event.target.getElementsByClassName('name')[0].value,
         "phone":  event.target.getElementsByClassName('tel')[0].value
       };
+      
+      console.log("TCL: formsData", formsData)
 
-      console.log(formsData);
       $.ajax({
         url: path,
         dataType: 'json',
@@ -345,6 +349,67 @@ displayModal();
         }
       });
     })
+    // FORM CATALOG
+    $('.form_catalog_product').submit(function(event){
+      event.preventDefault();
+      let path = window.location.pathname; 
+      let csrfToken = $('meta[name="csrf-token"]').attr("content");
+      let formsData = {
+        "form-name": event.target.getAttribute('data-form'),
+        "name":  event.target.getElementsByClassName('fName')[0].value,
+        "phone":  event.target.getElementsByClassName('tel')[0].value
+      };
+      
+      console.log("TCL: formsData", formsData)
+
+      $.ajax({
+        url: path,
+        dataType: 'json',
+        type: 'POST',
+        data: {data: formsData, '_csrf-frontend': csrfToken},
+        success: function(response){
+          console.log('response');
+          // document.getElementById('gratitude').classList.add('active');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          
+        }
+      });
+    })
+     // FORM CATALOG END
+
+      // FORM CALCULATOR
+    $('.form_calculator').submit(function(event){
+      event.preventDefault();
+      let path = window.location.pathname; 
+      let csrfToken = $('meta[name="csrf-token"]').attr("content");
+      let form = event.target;
+      let formsData = {
+        "form-name": form.getAttribute('data-form'),
+        "form_calculator": form.getElementsByClassName('manifacturer_')[0].value,
+        "depth": form.getElementsByClassName('depth_')[0].value,
+        "area": form.getElementsByClassName('area_')[0].value,
+        "name":  form.getElementsByClassName('fName')[0].value,
+        "phone":  form.getElementsByClassName('tel')[0].value
+      };
+      
+      console.log(formsData)
+
+      $.ajax({
+        url: path,
+        dataType: 'json',
+        type: 'POST',
+        data: {data: formsData, '_csrf-frontend': csrfToken},
+        success: function(response){
+          console.log('response');
+          // document.getElementById('gratitude').classList.add('active');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          
+        }
+      });
+    })
+     // FORM CALCULATOR END
   });
  
   

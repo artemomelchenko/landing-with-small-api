@@ -172,9 +172,9 @@ $this->title = 'ТопДах';
 							</svg>
 							<h3 class="heading_form">завантажити каталог</h3>
 
-                                <?= Html::beginForm('', 'post', ['class'=>'first_form','enctype' => 'multipart/form-data','id'=>'first_form']) ?>
+                                <?= Html::beginForm('', 'post', ['class'=>'first_form','enctype' => 'multipart/form-data','id'=>'first_form', 'data-form'=>'getCatalog']) ?>
 								<label for="firstName" class="first_name"> ваше ім'я:</label>
-								<input type="text" name="first_name" value="" minlength="2" required>
+								<input type="text" class="fName" name="first_name" value="" minlength="2" required>
 								<label for="phone" class="phone"> ваш номер:</label>
 								<input type="phone" class="tel" name="phone" value="" required>
 								<button class="btn_product" type="submit">скачати</button>
@@ -252,7 +252,7 @@ $this->title = 'ТопДах';
 							<span class="circle_namber">4</span>
 						</div>
 	
-						<div class="work_process_content grid owl-theme work_process_slider">
+						<div class="work_process_content grid work_process_slider">
 							<div class="content_item">
 							<h2>залишаєте заявку на прорахунок</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
@@ -345,7 +345,7 @@ $this->title = 'ТопДах';
 				<div class="over_line">
 					<h2 class="headihg_advantage pl">відгуки наших клієнтів</h2>
 					<div class="reviews_grid_container">
-						<div class="video">
+						<!-- <div class="video">
 							<iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0"
 								allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
@@ -356,7 +356,7 @@ $this->title = 'ТопДах';
 						<div class="video">
 							<iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0"
 								allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</section><!-- section end -->
@@ -414,11 +414,10 @@ $this->title = 'ТопДах';
 								</h3>
 								<div class="wrapper_form">
 
-                                        <?= Html::beginForm('', 'post', ['class'=>'second_form grid',
-                                                                                                'id'=>'second_form']) ?>
+                    <?= Html::beginForm('', 'post', ['class'=>'second_form grid','id'=>'second_form', 'data-form'=>'getCalculator']) ?>
 										<div class="form_field full_width ">
 											<label for="manifacturer" class="manifacturer"> виробник:</label>
-											<select size="1" name="manifacturer">
+											<select size="1" name="manifacturer" class="manifacturer_" required>
 												<option disabled>оберіть виробника</option>
 												<option value="Чебурашка">Чебурашка</option>
 												<option selected value="Крокодил Гена">Крокодил Гена</option>
@@ -428,15 +427,15 @@ $this->title = 'ТопДах';
 										</div>
 										<div class="form_field">
 											<label for="depth" class="depth"> товщина (мм):</label>
-											<input type="number" name="depth" value="">
+											<input type="number" name="depth" value="" class='depth_' required>
 										</div>
 										<div class="form_field">
 											<label for="area" class="area"> площа (мм):</label>
-											<input type="number" name="area" value="">
+											<input type="number" name="area" value="" class='area_' required>
 										</div>
 										<div class="form_field full_width">
 											<label for="second_name" class="name">ваше ім'я:</label>
-											<input type="text" name="name" value="" minlength="2" required>
+											<input type="text" name="name"  value="" minlength="2" required class='fName'>
 										</div>
 										<div class="form_field full_width">
 											<label for="second_phone" class="second_phone">ваш номер:</label>
