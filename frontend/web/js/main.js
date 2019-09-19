@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", event => {
+  console.log('---------' + window.location);
   if(isDesktop()){
     sectionScrollInit();
     document.getElementsByTagName('main')[0].classList.add('desktop');
@@ -321,20 +322,18 @@ displayModal();
       // })
       // POPUP END
     $(".tel").mask("+38(099) 999-99-99");
-
-
+ 
     $('.popup').submit(function(event){
       event.preventDefault();
-      let path = window.location.pathname;
+      let path = window.location.pathname; 
       let csrfToken = $('meta[name="csrf-token"]').attr("content");
       let formsData = {
         "form-name": event.target.getAttribute('data-form'),
         "name":  event.target.getElementsByClassName('name')[0].value,
         "phone":  event.target.getElementsByClassName('tel')[0].value
       };
-      console.log("TCL: formsData", formsData)
-
       
+      console.log("TCL: formsData", formsData)
 
       $.ajax({
         url: path,
@@ -350,6 +349,67 @@ displayModal();
         }
       });
     })
+    // FORM CATALOG
+    $('.form_catalog_product').submit(function(event){
+      event.preventDefault();
+      let path = window.location.pathname; 
+      let csrfToken = $('meta[name="csrf-token"]').attr("content");
+      let formsData = {
+        "form-name": event.target.getAttribute('data-form'),
+        "name":  event.target.getElementsByClassName('fName')[0].value,
+        "phone":  event.target.getElementsByClassName('tel')[0].value
+      };
+      
+      console.log("TCL: formsData", formsData)
+
+      $.ajax({
+        url: path,
+        dataType: 'json',
+        type: 'POST',
+        data: {data: formsData, '_csrf-frontend': csrfToken},
+        success: function(response){
+          console.log('response');
+          // document.getElementById('gratitude').classList.add('active');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          
+        }
+      });
+    })
+     // FORM CATALOG END
+
+      // FORM CALCULATOR
+    $('.form_calculator').submit(function(event){
+      event.preventDefault();
+      let path = window.location.pathname; 
+      let csrfToken = $('meta[name="csrf-token"]').attr("content");
+      let form = event.target;
+      let formsData = {
+        "form-name": form.getAttribute('data-form'),
+        "form_calculator": form.getElementsByClassName('manifacturer_')[0].value,
+        "depth": form.getElementsByClassName('depth_')[0].value,
+        "area": form.getElementsByClassName('area_')[0].value,
+        "name":  form.getElementsByClassName('fName')[0].value,
+        "phone":  form.getElementsByClassName('tel')[0].value
+      };
+      
+      console.log(formsData)
+
+      $.ajax({
+        url: path,
+        dataType: 'json',
+        type: 'POST',
+        data: {data: formsData, '_csrf-frontend': csrfToken},
+        success: function(response){
+          console.log('response');
+          // document.getElementById('gratitude').classList.add('active');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          
+        }
+      });
+    })
+     // FORM CALCULATOR END
   });
  
   

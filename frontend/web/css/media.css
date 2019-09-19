@@ -527,7 +527,7 @@ font-size: 14px;
 }
 
 .img_item img{
-	width: 16vw;
+	width: 17vw;
 	min-height: 22vh;
 }
 
@@ -1042,6 +1042,15 @@ font-size: 14px;
     padding-left: 10px;
     font-size: 14px;
   }
+  .img_box{
+    margin: 0;
+  }
+
+.contact_info {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin: 0;
+}
 }
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1024px) and (min-height : 1366px) {
@@ -1896,6 +1905,10 @@ font-size: 14px;
 select {
   width: 100%;
   height: 30px;
+  grid-column: 1 / 3;
+}
+.second_form .area_{
+  width: 207%;
 }
 
 .second_form .btn_product {
@@ -2064,29 +2077,7 @@ select {
     width: 75%;
     margin: 0 auto;
   }
-  /* #adventage .owl-carousel .owl-item img {
-    display: block;
-    width: 26%;
-  } */
-  /* #adventage .owl-carousel .owl-item .adventage_item h3{
-    padding-top: 24px;
-    font-size: 15px
   
-  } */
-  /* .owl-theme .owl-dots .owl-dot{
-    outline: none;
-  }  
-  #adventage .owl-theme .owl-dots .owl-dot.active span, 
-  #adventage .owl-theme .owl-dots .owl-dot:hover span {
-    background: #fff;
-    margin-top: 10px;
-  }
-
-  #adventage .owl-theme .owl-dots .owl-dot span{
-  background: #FA0105;
-} */
-   /* SECTION ADVANTAGE END*/
-  /*-------- Section catalog--------------- */
   #catalog {
     height: auto;
   }
@@ -2374,28 +2365,7 @@ select {
     z-index: 78;
   } */
 
-  /* #work_process .owl-carousel.owl-loaded {
-    display: grid;
-    height: auto;
-} */
-
-/* #work_process .owl-theme .owl-nav.disabled+.owl-dots {
-  margin-top: 10px;
-} */
-
-
-/* #work_process .owl-theme .owl-dots .owl-dot.active span, 
-#work_process .owl-theme .owl-dots .owl-dot:hover span {
-  background: #fff;
-  margin-top: 10px;
-  outline-style: none;
-} */
-
-
- /* #work_process .owl-theme .owl-dots .owl-dot span{
-  background: #FA0105;
-  outline-style: none;
-}  */
+  
   /* WORK PROCESS  END*/
 
   /* GALLAERY */
@@ -2650,13 +2620,7 @@ select {
     .container .adventage_item p{
       width: 100%;
     }
-    /* #adventage .owl-carousel .owl-item img {
-      width: 35%;
-  } */
-  /* .owl-theme .owl-dots .owl-dot span {
-    width: 8px;
-    height: 8px;
-  } */
+    
      /* SECTION ADVANTAGE END*/
 
     /* SECTION CATALOG PRODUCT*/
