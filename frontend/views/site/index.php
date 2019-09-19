@@ -36,7 +36,7 @@ $this->title = 'ТопДах';
 				<div class="over_line">
 					<div class="container">
 						<h2 class="headihg_advantage">чому металочерепіцю <br> купують в нас</h2>
-						<div class="advantage_grid_container grid advantage_slider owl-theme">
+						<div class="advantage_grid_container grid advantage_slider">
 							<div class="adventage_item">
 								<img src="img/icon.png" alt="icon">
 								<h3>особливості</h3>
@@ -345,10 +345,6 @@ $this->title = 'ТопДах';
 				<div class="over_line">
 					<h2 class="headihg_advantage pl">відгуки наших клієнтів</h2>
 					<div class="reviews_grid_container">
-						<!-- <div class="video">
-							<iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0"
-								allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
 						<div class="video">
 							<iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0"
 								allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -356,7 +352,11 @@ $this->title = 'ТопДах';
 						<div class="video">
 							<iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0"
 								allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div> -->
+						</div>
+						<div class="video">
+							<iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0"
+								allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
 					</div>
 				</div>
 			</section><!-- section end -->
