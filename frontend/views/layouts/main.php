@@ -37,7 +37,7 @@ AppAsset::register($this);
 
                                 <?= Html::beginForm('', 'post', ['class'=>'first_form', 'id'=>'popup_form']) ?>
 								<label for="first_name" class="first_name"> ваше ім'я:</label>
-								<input id="firstNname" type="text" name="first_name"  minlength="2" required >
+								<input id="firstNname" class="name" type="text" name="first_name"  minlength="2" required >
 								<label for="phone" class="phone"> ваш номер:</label>
 								<input id="phone" class="tel" type="text" name="phone" required>
 								<button class="btn_product_discont" type="submit">надіслати</button>

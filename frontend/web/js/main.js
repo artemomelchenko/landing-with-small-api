@@ -285,10 +285,12 @@ function displayModal(){
 
       if(target.tagName == 'A') {
         popup.getElementsByTagName('h3')[0].innerHTML = 'ОТРИМАТИ ЗНИЖКУ';
+        popup.getElementsByTagName('form')[0].setAttribute('data-form','getDiscont');
         popup.classList.add('active');
       }
       else {
         popup.getElementsByTagName('h3')[0].innerHTML = 'ОТРИМАТИ РОЗРАХУНОК';
+        popup.getElementsByTagName('form')[0].setAttribute('data-form','getPrice');
         popup.classList.add('active');
       }
       console.log(e.target);
@@ -323,13 +325,21 @@ displayModal();
     $('.popup').submit(function(event){
       event.preventDefault();
       let path = window.location.pathname;
-      var csrfToken = $('meta[name="csrf-token"]').attr("content");
-      // console.log('response');
+      let csrfToken = $('meta[name="csrf-token"]').attr("content");
+      let formsData = {
+        "form-name": event.target.getAttribute('data-form'),
+        "name":  event.target.getElementsByClassName('name')[0].value,
+        "phone":  event.target.getElementsByClassName('tel')[0].value
+      };
+      console.log("TCL: formsData", formsData)
+
+      
+
       $.ajax({
         url: path,
         dataType: 'json',
         type: 'POST',
-        data: {param1: 'vasa', '_csrf-frontend': csrfToken},
+        data: {data: formsData, '_csrf-frontend': csrfToken},
         success: function(response){
           console.log('response');
           document.getElementById('gratitude').classList.add('active');
