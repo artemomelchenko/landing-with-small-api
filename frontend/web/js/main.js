@@ -285,10 +285,12 @@ function displayModal(){
 
       if(target.tagName == 'A') {
         popup.getElementsByTagName('h3')[0].innerHTML = 'ОТРИМАТИ ЗНИЖКУ';
+        popup.getElementsByTagName('form')[0].setAttribute('data-form','getDiscont');
         popup.classList.add('active');
       }
       else {
         popup.getElementsByTagName('h3')[0].innerHTML = 'ОТРИМАТИ РОЗРАХУНОК';
+        popup.getElementsByTagName('form')[0].setAttribute('data-form','getPrice');
         popup.classList.add('active');
       }
       console.log(e.target);
@@ -329,8 +331,10 @@ displayModal();
         "name":  event.target.getElementsByClassName('name')[0].value,
         "phone":  event.target.getElementsByClassName('tel')[0].value
       };
+      console.log("TCL: formsData", formsData)
 
-      console.log(formsData);
+      
+
       $.ajax({
         url: path,
         dataType: 'json',
