@@ -333,7 +333,7 @@ header::before {
 	content: url(../img/bg_header.png);
 	z-index: 4;
 	position: absolute;
-	bottom: 0;
+	/* bottom: 0; */
 	width: 100vw;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -398,7 +398,7 @@ header::before {
 .heading_text,
 .text {
 	text-transform: uppercase;
-	letter-spacing: .3rem;
+	letter-spacing: .25rem;
 	font-family: var(--main_font);
 }
 
@@ -518,7 +518,7 @@ header::before {
 	grid-row-gap: 30px;
 	padding-top: 64px;
 	text-align: center;
-	padding-top: 5.371vw;
+	/* padding-top: 5.371vw; */
 }
 .adventage_item {
 	display: flex;
@@ -1563,6 +1563,7 @@ header::before {
 	position: relative;
 	width: 80% ;
 	background-color: #fff;
+	border: 1px solid #ddd;
 	
 }
 

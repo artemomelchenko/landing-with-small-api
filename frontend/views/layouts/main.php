@@ -34,7 +34,8 @@ AppAsset::register($this);
 						<div class="popup">
 								<div class="button_close"></div>
 							<h3 class="heading_form">отримати знижку</h3>
-							<form id="popup_form" class="first_form" method="POST" action="">
+
+                                <?= Html::beginForm('', 'post', ['class'=>'first_form', 'id'=>'popup_form']) ?>
 								<label for="first_name" class="first_name"> ваше ім'я:</label>
 								<input id="firstNname" type="text" name="first_name"  minlength="2" required >
 								<label for="phone" class="phone"> ваш номер:</label>
@@ -44,7 +45,8 @@ AppAsset::register($this);
 									<img class="locker" src="img/Frame.png" alt="locker image">
 									<span class="saif">ваші данні в безпеці</span>
 								</div>
-							</form>
+                                <?= Html::endForm() ?>
+
 						</div>
 <main>
     <ul id="section_scroll" class="navigator">

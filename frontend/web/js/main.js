@@ -7,6 +7,9 @@ window.addEventListener("DOMContentLoaded", event => {
   else {
     let count = screen.width <= 500?3:5;
     mobileBackgroundLines(count);
+    if(count <= 500) {
+      advantageSlider();
+    }
   }
    viewPortInfo.backGroundLines.classList.add('active');
    catalogSectionInit();
@@ -17,7 +20,6 @@ window.addEventListener("DOMContentLoaded", event => {
   }
 
   function mobileBackgroundLines(count){
-    const start= new Date().getTime();
     let backgrounds = Array.from(document.getElementsByClassName('background-animation'));
     const buildLine = (el) => {
         for(let i = 0; i < count; i++) {
@@ -30,8 +32,6 @@ window.addEventListener("DOMContentLoaded", event => {
       el.innerHTML = null;
       buildLine(el);
     });
-    const end = new Date().getTime();
-    console.log(`SecondWay: ${end - start}ms`);
   }
 
   var viewPortInfo = {
@@ -185,72 +185,83 @@ window.addEventListener("DOMContentLoaded", event => {
         }
       });
     }
-  
+
     init();
   }
   
 
 // GOOGLE MAP 
-// function initMap() {
-//     var location = 
-//         {
-//             lat: 48.2835717, 
-//             lng: 25.936441
-//         };
-//     var map = new google.maps.Map(
-//         document.getElementById('map'), 
-//         {
-//             zoom: 4, 
-//             center: location
-//         });
+function initMap() {
+    var location = 
+        {
+            lat: 48.2835717, 
+            lng: 25.936441
+        };
+    var map = new google.maps.Map(
+        document.getElementById('map'), 
+        {
+            zoom: 4, 
+            center: location
+        });
     
-//     var marker = new google.maps.Marker(
-//         {
-//             position: location, 
-//             map: map
-//         });
-//   }
+    var marker = new google.maps.Marker(
+        {
+            position: location, 
+            map: map
+        });
+  }
 
 
-  $(".circle_namber").click(function () {
-		$(".circle_namber").removeClass("circle_namber_activ", "owl-item" );
-		$(this).addClass("circle_namber_activ");
-  })
+  // $(".circle_namber").click(function () {
+	// 	$(".circle_namber").removeClass("circle_namber_activ", "owl-item" );
+	// 	$(this).addClass("circle_namber_activ");
+  // })
   
 //  OWL CARUSEL
-  var $homeSlider = $(".advantage_slider, .work_process_slider");
+  // var $homeSlider = $(".advantage_slider, .work_process_slider");
 
-  $(window).resize(function() {
-    showHomeSlider();
-  });
+  // $(window).resize(function() {
+  //   showHomeSlider();
+  // });
 
-  function showHomeSlider() {
-    if ($homeSlider.data("owlCarousel") !== "undefined") {
-      if (window.matchMedia('(max-width: 480px)').matches) {
-        initialHomeSlider();
-      } else {
-        destroyHomeSlider();
-      }
-    }
-  }
-  showHomeSlider();
+  // function showHomeSlider() {
+  //   if ($homeSlider.data("owlCarousel") !== "undefined") {
+  //     if (window.matchMedia('(max-width: 480px)').matches) {
+  //       initialHomeSlider();
+  //     } else {
+  //       destroyHomeSlider();
+  //     }
+  //   }
+  // }
+  // showHomeSlider();
 
-  function initialHomeSlider() {
-    $homeSlider.addClass("owl-carousel").owlCarousel({
-      items: 1,
-      margin: 10,
-      dots:true,
-      center: true,
-      autoWidth: true,
-      autoWidth: 0
+  // function initialHomeSlider() {
+  //   $homeSlider.addClass("owl-carousel").owlCarousel({
+  //     items: 1,
+  //     margin: 10,
+  //     dots:true,
+  //     center: true,
+  //     autoWidth: true,
+  //     autoWidth: 0
       
+  //   });
+  // }
+
+  // function destroyHomeSlider() {
+  //   $homeSlider.trigger("destroy.owl.carousel").removeClass("owl-carousel");
+  // }
+  // OWL CARUSEL END
+
+  function advantageSlider() {
+    $(".advantage_grid_container").slick({
+      arrows: true
     });
+
+    $(".work_process_content ").slick({
+      arrows: true
+    });    
   }
 
-  function destroyHomeSlider() {
-    $homeSlider.trigger("destroy.owl.carousel").removeClass("owl-carousel");
-  }
-  // OWL CARUSEL END
 
 
   
@@ -312,12 +323,19 @@ displayModal();
     $('.popup').submit(function(event){
       event.preventDefault();
       let path = window.location.pathname;
+      var csrfToken = $('meta[name="csrf-token"]').attr("content");
+      // console.log('response');
       $.ajax({
         url: path,
         dataType: 'json',
         type: 'POST',
+        data: {param1: 'vasa', '_csrf-frontend': csrfToken},
         success: function(response){
+          console.log('response');
           document.getElementById('gratitude').classList.add('active');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          
         }
       });
     })
