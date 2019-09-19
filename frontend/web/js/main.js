@@ -323,13 +323,19 @@ displayModal();
     $('.popup').submit(function(event){
       event.preventDefault();
       let path = window.location.pathname;
-      var csrfToken = $('meta[name="csrf-token"]').attr("content");
-      // console.log('response');
+      let csrfToken = $('meta[name="csrf-token"]').attr("content");
+      let formsData = {
+        "form-name": event.target.getAttribute('data-form'),
+        "name":  event.target.getElementsByClassName('name')[0].value,
+        "phone":  event.target.getElementsByClassName('tel')[0].value
+      };
+
+      console.log(formsData);
       $.ajax({
         url: path,
         dataType: 'json',
         type: 'POST',
-        data: {param1: 'vasa', '_csrf-frontend': csrfToken},
+        data: {data: formsData, '_csrf-frontend': csrfToken},
         success: function(response){
           console.log('response');
           document.getElementById('gratitude').classList.add('active');
