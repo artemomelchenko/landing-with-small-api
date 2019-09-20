@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "leads".
@@ -60,14 +61,18 @@ class Leads extends \yii\db\ActiveRecord
     }
     public static function sendToTelegram(array $arr){
 
-        $token ='981466372:AAG_XaJxqOTydNivZP-2zbTeoQLDkXDKkN0';
-        $chat_id = '-396864039';
+        $token ='698566873:AAH29686LePlwWf4nkCWA-h883KhKp5uGow';
+        $chat_id = '-361536928';
 
-        $txt = 'прівєт';
+        $txt = '';
 
-//        foreach ($arr as $key => $value) {
-//            $txt .= "<b>" . $key . "</b> " . $value . "%0A";
-//        };
+        foreach ($arr as $key) {
+//            $txt = "<b>".$key['phone'].$key['name']. "</b>";
+            $txt = '-------Ім\'я-'.$key['name'].
+                   '-------Номер телефону-'.$key['phone'].
+                    '------Назва форми-'.$key['forma'].'';
+        };
+//            VarDumper::dump($txt,10,1);
 
      return $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}", "r");
     }

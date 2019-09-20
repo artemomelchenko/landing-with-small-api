@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\Leads;
+use common\models\LeadsSettings;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -80,10 +81,10 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $leads = new Leads();
+        $leadset = new LeadsSettings();
 
         if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
-            VarDumper::dump($data['data'],10,1);
             if ($data['data']['form-name'] == 'getDiscont') {
             $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
             $leads->phone = $data['data']['phone'];
@@ -96,11 +97,31 @@ class SiteController extends Controller
                         'forma' => $leads->form_name,
                     ]
                 ];
-//                VarDumper::dump(Leads::sendEmail($arr),10,1);
+//                Leads::sendToTelegram($arr);
+                VarDumper::dump(Leads::sendToTelegram($arr),10,1);
                 Leads::sendEmail($arr);
+
+
 
                 $leads->save();
             }
+            elseif ($data['data']['form-name'] == 'getPrice'){
+                $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
+                $leads->phone = $data['data']['phone'];
+                $leads->date_create = new Expression('NOW()');
+                $leads->form_name = $data['data']['form-name'];
+                $arr = [
+                    'array' => [
+                        'name' => $leads->name,
+                        'phone' => $leads->phone,
+                        'forma' => $leads->form_name,
+                    ]
+                ];
+                Leads::sendEmail($arr);
+                $leads->save();
+            }
+
+
             elseif($data['data']['form-name'] == 'getCatalog' ){
                 $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
                 $leads->phone = $data['data']['phone'];
@@ -116,7 +137,27 @@ class SiteController extends Controller
                 Leads::sendEmail($arr);
                 $leads->save();
             }
-            elseif ($data['data']['form-name'] == 'getCalculator' ){
+            elseif ($data['data']['form-name'] == 'getCalculator'){
+                VarDumper::dump($data,10,1);
+                $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
+                $leads->phone = $data['data']['phone'];
+                $leads->form_name = $data['data']['form-name'];
+                $leads->date_create = new Expression('NOW()');
+                $leads->save();
+                $leadset->manufacturer = $data['data']['manifacturer'];
+                $leadset->thickness =$data['data'][ 'depth'];
+                $leadset->square = $data['data']['area'];
+                $leadset->leads_id = $leads->id;
+                $leadset->save();
+                $arr = [
+                    'array' => [
+                        'name' => $leads->name,
+                        'phone' => $leads->phone,
+                        'forma' => $leads->form_name,
+                    ]
+                ];
+                Leads::sendEmail($arr);
+
             }
 
         }
