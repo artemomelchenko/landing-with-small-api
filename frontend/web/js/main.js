@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", event => {
-  console.log('---------' + window.location);
   if(isDesktop()){
     sectionScrollInit();
     document.getElementsByTagName('main')[0].classList.add('desktop');
@@ -328,11 +327,11 @@ displayModal();
       event.preventDefault();
       let path = window.location.pathname; 
       let csrfToken = $('meta[name="csrf-token"]').attr("content");
-      let formsData = {
+      let formsData = JSON.stringify({
         "form-name": event.target.getAttribute('data-form'),
         "name":  event.target.getElementsByClassName('name')[0].value,
         "phone":  event.target.getElementsByClassName('tel')[0].value
-      };
+      });
       
       console.log("TCL: formsData", formsData)
 
@@ -355,11 +354,11 @@ displayModal();
       event.preventDefault();
       let path = window.location.pathname; 
       let csrfToken = $('meta[name="csrf-token"]').attr("content");
-      let formsData = {
+      let formsData = JSON.stringify({
         "form-name": event.target.getAttribute('data-form'),
         "name":  event.target.getElementsByClassName('fName')[0].value,
         "phone":  event.target.getElementsByClassName('tel')[0].value
-      };
+      });
       
       console.log("TCL: formsData", formsData)
 
@@ -385,14 +384,14 @@ displayModal();
       let path = window.location.pathname; 
       let csrfToken = $('meta[name="csrf-token"]').attr("content");
       let form = event.target;
-      let formsData = {
+      let formsData = JSON.stringify({
         "form-name": form.getAttribute('data-form'),
-        "form_calculator": form.getElementsByClassName('manifacturer_')[0].value,
+        "manifacturer": form.getElementsByClassName('manifacturer_')[0].value,
         "depth": form.getElementsByClassName('depth_')[0].value,
         "area": form.getElementsByClassName('area_')[0].value,
         "name":  form.getElementsByClassName('fName')[0].value,
         "phone":  form.getElementsByClassName('tel')[0].value
-      };
+      });
       
       console.log(formsData)
 

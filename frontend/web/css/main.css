@@ -953,13 +953,17 @@ header::before {
 }
 
 .info-wrap {
-	display: flex;
+	display: none;
 	/* justify-content: center; */
 	align-items: flex-end;
 	width: 50%;
 	height: 90%;
 	font-size: 0.833vw;
-  }
+}
+
+.info-wrap.active {
+	display: flex;
+}
 
 #material-info {
 	display: flex;
