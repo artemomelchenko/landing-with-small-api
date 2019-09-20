@@ -83,6 +83,7 @@ class SiteController extends Controller
 
         if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
+            VarDumper::dump($data['data'],10,1);
             if ($data['data']['form-name'] == 'getDiscont') {
             $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
             $leads->phone = $data['data']['phone'];
@@ -97,6 +98,7 @@ class SiteController extends Controller
                 ];
 //                VarDumper::dump(Leads::sendEmail($arr),10,1);
                 Leads::sendEmail($arr);
+
                 $leads->save();
             }
             elseif($data['data']['form-name'] == 'getCatalog' ){
@@ -116,7 +118,7 @@ class SiteController extends Controller
             }
             elseif ($data['data']['form-name'] == 'getCalculator' ){
             }
-            VarDumper::dump($data['data'],10,1);
+
         }
 
 

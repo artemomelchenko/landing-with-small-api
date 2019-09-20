@@ -1,6 +1,7 @@
 <IfModule mod_rewrite.c>
     Options +FollowSymlinks
     RewriteEngine On
+    AddDefaultCharset UTF-8
 </IfModule>
 <IfModule mod_rewrite.c>
 
