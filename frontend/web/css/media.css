@@ -1833,6 +1833,9 @@ font-size: 14px;
   font-size: 14px;
   line-height: 1.5rem;
 }
+.btn_work_process {
+  bottom: 5%;
+}
 
 
 /* SECTION WORK PROCEC END*/
@@ -1843,6 +1846,9 @@ font-size: 14px;
 
 #gallery {
   height: 100vh;
+}
+.gallery_grid_container {
+  width: 75%;
 }
 
 .gallery_text {
