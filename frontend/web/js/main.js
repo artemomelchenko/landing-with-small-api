@@ -338,6 +338,7 @@ displayModal();
       $.ajax({
         url: path,
         dataType: 'json',
+        contentType: "application/json; charset=utf-8",
         type: 'POST',
         data: {data: formsData, '_csrf-frontend': csrfToken},
         success: function(response){
@@ -365,6 +366,7 @@ displayModal();
       $.ajax({
         url: path,
         dataType: 'json',
+        contentType: "application/json; charset=utf-8",
         type: 'POST',
         data: {data: formsData, '_csrf-frontend': csrfToken},
         success: function(response){
@@ -398,6 +400,7 @@ displayModal();
       $.ajax({
         url: path,
         dataType: 'json',
+        contentType: "application/json; charset=utf-8",
         type: 'POST',
         data: {data: formsData, '_csrf-frontend': csrfToken},
         success: function(response){

@@ -215,13 +215,15 @@ function catalogBuilder() {
 
   function showPremium(){
     const premium = document.getElementsByClassName('premium')[0];
+    const wrap = document.getElementsByClassName('info-wrap')[0];
     premium.addEventListener('click', function() {
-    document.getElementsByClassName('info-wrap')[0].classList.add('active');
-    document.body.addEventListener('click', function() {
-      if(this != premium) {
+    wrap.classList.add('active');
+    document.body.addEventListener('click', function(e) {
+      console.log(e.target == premium);
+      if(e.target != premium) {
         premium.classList.remove('active');
       }
-    })
+    },false)
     })
    }
 
