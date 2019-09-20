@@ -8,7 +8,8 @@ window.addEventListener("DOMContentLoaded", event => {
   else {
     let count = screen.width <= 500?3:5;
     mobileBackgroundLines(count);
-    if(count <= 500) {
+    console.log(count);
+    if(count < 5) {
       advantageSlider();
     }
   }
