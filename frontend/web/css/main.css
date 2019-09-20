@@ -333,7 +333,7 @@ header::before {
 	content: url(../img/bg_header.png);
 	z-index: 4;
 	position: absolute;
-	/* bottom: 0; */
+	bottom: -7px;
 	width: 100vw;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -1589,6 +1589,21 @@ header::before {
 	outline-style: none;
 	text-align: left;
 	margin: 0 auto;	
+}
+
+select{
+	position: relative;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+}
+select:after{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	background-color: red;
 }
 .wrapper_form{
 	width: 80%;
