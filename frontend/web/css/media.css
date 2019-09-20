@@ -1096,6 +1096,10 @@ font-size: 14px;
     height: 40vh;
   }
 
+  .assortment .brand-info {
+    bottom: 20vh;
+  }
+
   .up_svg {
     top: -8%;
     left: -7%;
@@ -1619,9 +1623,7 @@ font-size: 14px;
   /* FOOter END */
 
 }
-@media only screen and (max-width : 1024px) and (min-height: 1024px) {
 
-}
 /* Styles for laptops */
 @media only screen and (min-width : 768px) and (max-width: 1024px) {
   #catalog {
@@ -1629,30 +1631,38 @@ font-size: 14px;
   }
 
   .brand-container {
-    width: 40%;
+    width: 35%;
   }
 
   .color-slider {
-    margin-left: 5.5%;
-    height: 60%;
+    margin-left: 5%;
+    height: 70%;
   }
 
   .assortment {
-    padding-left: 9.5%; 
+    /* box-sizing: border-box; */
+    padding-left: 10%; 
   }
 
   .brand-info {
-    left: 50.5%;
+    left: 45%;
     bottom: 10vh;
     height: auto;
   }
 
   .brand-info .brand-description .items-propery {
+    font-size: 16px;
     height: auto;
   }
 
   .brand-info .items-price {
     margin-bottom: 5%;
+  }
+}
+
+@media only screen and (max-width : 1024px) and (min-height: 1224px) {
+  .color-slider {
+    height: 35vh;
   }
 }
 
@@ -1969,6 +1979,20 @@ select {
   
   padding-bottom: 20px;
 }
+}
+
+
+@media screen and (max-width: 1024px) and (orientation: landscape){
+  .slider {
+    height: 100%;
+  }
+  #catalog {
+    height: 145vh;
+  }
+
+  .brand-carusel img{
+    height: 90%;
+  }
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 640px) {
