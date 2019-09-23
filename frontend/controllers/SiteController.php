@@ -90,16 +90,17 @@ class SiteController extends Controller
             $leads->phone = $data['data']['phone'];
             $leads->date_create = new Expression('NOW()');
             $leads->form_name = $data['data']['form-name'];
-                $arr = [
+
+                $array = [
                     'array' => [
-                        'name' => $leads->name,
-                        'phone' => $leads->phone,
-                        'forma' => $leads->form_name,
+                        'Ім\'я' => $leads->name,
+                        'Мобільний телефон' => $leads->phone,
+                        'Назва форми' => ($leads->form_name == 'getDiscont')?'Отримати знижку':'',
                     ]
                 ];
-//                Leads::sendToTelegram($arr);
-                VarDumper::dump(Leads::sendToTelegram($arr),10,1);
-                Leads::sendEmail($arr);
+
+               Leads::sendToTelegram($array['array']);
+               Leads::sendEmail($array);
 
 
 
@@ -110,14 +111,16 @@ class SiteController extends Controller
                 $leads->phone = $data['data']['phone'];
                 $leads->date_create = new Expression('NOW()');
                 $leads->form_name = $data['data']['form-name'];
-                $arr = [
+                $array = [
                     'array' => [
-                        'name' => $leads->name,
-                        'phone' => $leads->phone,
-                        'forma' => $leads->form_name,
+                        'Ім\'я' => $leads->name,
+                        'Мобільний телефон' => $leads->phone,
+                        'Назва форми' => ($leads->form_name == 'getPrice')? 'Отримати розрахунок':'' ,
                     ]
                 ];
-                Leads::sendEmail($arr);
+
+               Leads::sendToTelegram($array['array']);
+               Leads::sendEmail($array);
                 $leads->save();
             }
 
@@ -127,18 +130,20 @@ class SiteController extends Controller
                 $leads->phone = $data['data']['phone'];
                 $leads->date_create = new Expression('NOW()');
                 $leads->form_name = $data['data']['form-name'];
-                $arr = [
+                $array = [
                     'array' => [
-                        'name' => $leads->name,
-                        'phone' => $leads->phone,
-                        'forma' => $leads->form_name,
+                        'Ім\'я' => $leads->name,
+                        'Мобільний телефон' => $leads->phone,
+                        'Назва форми' =>  ($leads->form_name == 'getCatalog')? 'Завантажити каталог':'',
                     ]
                 ];
-                Leads::sendEmail($arr);
+
+                Leads::sendToTelegram($array['array']);
+                Leads::sendEmail($array);
                 $leads->save();
             }
             elseif ($data['data']['form-name'] == 'getCalculator'){
-                VarDumper::dump($data,10,1);
+
                 $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
                 $leads->phone = $data['data']['phone'];
                 $leads->form_name = $data['data']['form-name'];
@@ -149,14 +154,20 @@ class SiteController extends Controller
                 $leadset->square = $data['data']['area'];
                 $leadset->leads_id = $leads->id;
                 $leadset->save();
-                $arr = [
+                $array = [
                     'array' => [
-                        'name' => $leads->name,
-                        'phone' => $leads->phone,
-                        'forma' => $leads->form_name,
+                        'Ім\'я' => $leads->name,
+                        'Мобільний телефон' => $leads->phone,
+                        'Назва форми' =>($leads->form_name == 'getCalculator')? 'Залишіть заявку на розрахунок вашої кровлі':'',
+                        'Виробник' =>$leadset->manufacturer,
+                        'Товщина' =>$leadset->thickness,
+                        'Площа' =>$leadset->square,
+
                     ]
                 ];
-                Leads::sendEmail($arr);
+
+                Leads::sendToTelegram($array['array']);
+              Leads::sendEmail($array);
 
             }
 
@@ -351,6 +362,6 @@ class SiteController extends Controller
         $filename = 'sss.pdf';
         $completePath = Yii::getAlias('@frontend'.$filePath);
 
-        return Yii::$app->response->sendFile($completePath, 'sss.pdf',['inline'=>true]);
+        return Yii::$app->response->sendFile($completePath, 'sss.pdf');
     }
 }

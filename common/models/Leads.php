@@ -60,28 +60,29 @@ class Leads extends \yii\db\ActiveRecord
         return $this->hasOne(LeadsSettings::className(), ['leads_id' => 'id']);
     }
     public static function sendToTelegram(array $arr){
-
+//        if($['forma'] ==''){
+//
+//        }
         $token ='698566873:AAH29686LePlwWf4nkCWA-h883KhKp5uGow';
         $chat_id = '-361536928';
 
         $txt = '';
+        foreach ($arr as $key => $value) {
+            $txt .= "<b>" . $key . "</b> " . $value."%0A";
 
-        foreach ($arr as $key) {
-//            $txt = "<b>".$key['phone'].$key['name']. "</b>";
-            $txt = '-------Ім\'я-'.$key['name'].
-                   '-------Номер телефону-'.$key['phone'].
-                    '------Назва форми-'.$key['forma'].'';
         };
-//            VarDumper::dump($txt,10,1);
+//            $txt = 'Ім\'я-'.$key['name'].':Номер телефону-'.$key['phone'].':Назва форми-'.$key['forma'];
+
+
 
      return $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}", "r");
     }
-    public static function sendEmail(array $array){
+    public static function sendEmail(array $arr){
         return Yii::$app->mailer->compose([
             'html' => 'message',
             'text' => 'message',
 
-        ],$array)
+        ],$arr)
             ->setTo(Yii::$app->params['adminEmail'])
             ->setFrom([Yii::$app->params['adminEmail'] => 'test'])
             ->setSubject('Заявка')
