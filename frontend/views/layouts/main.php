@@ -80,13 +80,13 @@ AppAsset::register($this);
                 </div>
                 <div class="header_location">
                     <ul>
-                        <li><img src="img/icon_location.png" alt="icon_location"></li>
+                        <li><img src="img/icon_location.svg" alt="icon_location"></li>
                         <li> <span header_location_text>м. Чернівці <br> вул. Головна 115</span></li>
                     </ul>
                 </div>
                 <div class="header_phone">
                     <ul>
-                        <li> <a href="tel:+380000000000"> <img src="img/icon_phone.png" alt="icon_phone"></a></li>
+                        <li> <a href="tel:+380000000000"> <img src="img/icon_phone.svg" alt="icon_phone"></a></li>
                         <li><span header_location_text>0 50 50 50 255 <br> 0 50 50 50 255</span></li>
                     </ul>
                 </div>
@@ -132,14 +132,14 @@ AppAsset::register($this);
                                 </div>
                                 <div class="contact_item ">
                                     <div class="item_wrapper">
-                                        <img src="img/clock.png" alt="clock image">
+                                        <img src="img/clock.svg" alt="clock image">
                                         <span class="padding_top">режим та час роботи</span>
                                     </div>
                                     <span class="center"> Пн-Пт 9:00 - 20:00, Сб-Нд Вихідний</span>
                                 </div>
                                 <div class="contact_item">
                                     <div class="item_wrapper">
-                                        <img src="img/email.png" alt="phone icon">
+                                        <img src="img/mail.svg" alt="phone icon">
                                         <span class="contact">пошта</span>
                                     </div>
                                     <div class="center">
@@ -148,7 +148,7 @@ AppAsset::register($this);
                                 </div>
                                 <div class="contact_item">
                                     <div class="item_wrapper">
-                                        <img src="img/phone=1.png" alt="phone icon">
+                                        <img src="img/phone.svg" alt="phone icon">
                                         <span class="contact">контакти</span>
                                     </div>
                                     <div class="center">
@@ -158,7 +158,7 @@ AppAsset::register($this);
                                 </div>
                                 <div class="contact_item">
                                     <div class="item_wrapper">
-                                        <img src="img/metca.png" alt="location icon">
+                                        <img src="img/map-icon.svg" alt="location icon">
                                         <span class="contact">Адреса</span>
                                     </div>
                                     <div class="center">
