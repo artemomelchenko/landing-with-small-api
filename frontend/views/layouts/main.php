@@ -75,7 +75,9 @@ AppAsset::register($this);
         </div>
         <header id="header" class="over_line">
             <div class="header_grid_container grid">
-                <div class="logo"><img src="img/logo.png" alt="logo Top_dah"></div>
+                <div class="logo">
+                <img src="img/logo.svg" alt="logo Top_dah">
+                </div>
                 <div class="header_location">
                     <ul>
                         <li><img src="img/icon_location.png" alt="icon_location"></li>

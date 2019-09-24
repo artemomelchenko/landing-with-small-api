@@ -1322,6 +1322,9 @@ font-size: 14px;
   .header_grid_container {
     margin: 0 9vw 7vw 12.5vw;
   }
+  .logo img{
+    width: 120px;
+  }
   .header_location img, .header_phone img {
     width: 100%;
   }
@@ -2033,6 +2036,12 @@ select {
   .btn_product_discont {
     margin-top: 26px;
     width: 100%;
+}
+.logo img{
+  width: 90px;
+}
+.header_phone img {
+  width: 70%;
 }
   header {
     background-image: url(../img/bg_header_phone.png);
