@@ -54,7 +54,8 @@ window.addEventListener("DOMContentLoaded", event => {
     let _isAnim = false;
     const colorMap = [true, false, true, true, false, true, false, true, false];
     const backGroundAnim = Array.from(document.getElementsByClassName('background-animation'));
-    
+    const calc_price = document.getElementById('calc_price');
+
     const isWhiteTheme = (pos) => colorMap[pos];
   
     let scrollData = {
@@ -128,6 +129,21 @@ window.addEventListener("DOMContentLoaded", event => {
       }
     });
 
+    calc_price.addEventListener('click', function() {
+      TweenMax.to($scroller, 1, {
+        y: '-=' + ($(window).height() * 3),
+        ease: Power3.easeInOut,
+        onStart: () => {
+          _isAnim = true;
+        },
+        onComplete: () => {
+          switchLines();
+         _isAnim = false;
+       }
+      });
+      scrollData._current = 8;
+    });
+
     function init() {
       let items =  Array.from(container.getElementsByTagName('li'));
       items.forEach(function(li){
@@ -161,7 +177,6 @@ window.addEventListener("DOMContentLoaded", event => {
             y: `${direction} ${translateY()}`,
             ease: Power3.easeInOut,
             onStart: () => {
-              
               container.classList.add('prevent_click');
               _isAnim = true;
             },
@@ -173,7 +188,6 @@ window.addEventListener("DOMContentLoaded", event => {
 
           });
           scrollData._current = targetSection;
-          console.log(scrollData._current); 
         })
       })
       container.addEventListener("click", function(e) {
@@ -278,13 +292,15 @@ function displayModal(){
     document.getElementsByClassName('popup active')[0].classList.remove('active');
     eclipse.classList.remove('active');
     $('input').val('');
-  })
+  });
+  console.log(btns);
   btns.forEach(function(el) {
+    console.log(el);
     el.addEventListener('click', function(e) {
       e.preventDefault();
       let target = e.target;
       let popup = document.getElementsByClassName('popup')[0];
-
+      console.log(el);
       if(target.tagName == 'A') {
         popup.getElementsByTagName('h3')[0].innerHTML = 'ОТРИМАТИ ЗНИЖКУ';
         popup.getElementsByTagName('form')[0].setAttribute('data-form','getDiscont');
@@ -295,7 +311,6 @@ function displayModal(){
         popup.getElementsByTagName('form')[0].setAttribute('data-form','getPrice');
         popup.classList.add('active');
       }
-      console.log(e.target);
       eclipse.classList.add('active');
     })
   });
@@ -308,7 +323,6 @@ function displayModal(){
       form.classList.remove('active');
     });
   })
-  console.log(btns);
 }
 
 displayModal();

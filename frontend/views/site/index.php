@@ -124,7 +124,7 @@ $this->title = 'ТопДах';
 										<table class="items-propery">
 											
 										</table>
-                                        <button class="btn_main">Дізнатись ціну</button>
+                                        <button class="btn_main modal">Дізнатись ціну</button>
                                 </div>
                                 <div class="info-wrap">
                                     <div id="material-info">
@@ -219,7 +219,7 @@ $this->title = 'ТопДах';
 					<h2 class="headihg_advantage pl">Вся справа в підході</h2>
 					<div class="work_process_grid_container grid">
 						<div class="img_auto">
-							<img src="img/fyra.png" alt="auto">
+							<img src="img/duff.png" alt="auto">
 						</div>
 						<div class="horizontal_namber">
 							<span class="circle_namber circle_namber_activ">1</span>
@@ -275,7 +275,7 @@ $this->title = 'ТопДах';
 							</div>
 						</div>
 						<div class="btn_work_process">
-								<a href="#">розрахувати вартість </a>
+								<a id="calc_price" href="#">розрахувати вартість </a>
 						</div>
 					</div> <!-- work_process_grid_container end -->
 				</div>

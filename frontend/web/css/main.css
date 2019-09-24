@@ -18,7 +18,6 @@ body {
 	box-sizing: border-box;
 }
 
-
 main.desktop {
   position: fixed;
   top: 0;
@@ -71,11 +70,12 @@ section {
 	height: 100vh;
 	position: relative;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 
 #eclipse {
 	display: none;
-	position: absolute;
+	position: fixed;
 	z-index: 998;
 	width: 100vw;
 	height: 100vh;
@@ -103,7 +103,7 @@ section {
 .background-animation .line {
 	width: 12.5%;
 	height: 100%;
-	border-right: 1px ridge #ddd;
+	border-right: 1px solid rgba(0, 0, 0, 0.08);
 	transition: border 2s;
 	z-index: 1;
 }
@@ -554,6 +554,7 @@ header::before {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 85%;
+	overflow-x: hidden;
 }
 
 #catalog .over_line {
@@ -597,7 +598,7 @@ header::before {
 	position: relative;
 }
 
-.catalog-menu .catalog-item.active:after {
+.catalog-menu .catalog-item:after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -606,7 +607,7 @@ header::before {
 	height: 2px;
 	opacity: 0;
 	background-color: red;
-	transition: opacity .2s ease;
+	transition: opacity .3s ease;
 	box-sizing: border-box;
 }
 
@@ -839,7 +840,7 @@ header::before {
 }
 
 .brand-description {
-	justify-content: space-between;
+	/* justify-content: space-between; */
 }
 
 .brand-description .item-title {
@@ -848,6 +849,7 @@ header::before {
 	color: var(--main_black);
 	font-size: 1.25vw;
 	line-height: 2em;
+	margin-bottom: 1%;
 }
 .brand-description .item-title span {
 	color: var(--main_red);
@@ -857,13 +859,14 @@ header::before {
 
 .brand-description .slider-wrap {
 	width: 80%;
-	height: 20%;
+	margin-bottom: 5%;
+	/* height: 20%; */
 }
 
 .brand-description .brand-carusel {
 	width: 100%;
 	height: auto;
-	padding: 1.5vw 4vw 1.5vw 4vw;
+	padding: .9vw 4vw .9vw 4vw;
 	box-sizing: border-box;
 	border: 1px solid #ddd;
 	background-color: #fff;
@@ -874,8 +877,10 @@ header::before {
 	top: calc(50% - 7px);
 }
 
+
 .items-price {
 	font-size: 1em;
+	margin-bottom: 5%;
 }
 
 .items-price .price:after {
@@ -897,14 +902,16 @@ header::before {
 	height: 45%;
 	flex-direction: column;
 	font-size: 0.833vw;
-	line-height: 1.563vw;
+	line-height: 1.8vw;
+	margin-bottom: 5%;
 }
 
 .brand-description caption {
 	position: relative;
-	height: 20%;
+	/* height: 20%; */
 	font-size: 1.4vw;
 	/* line-height: 2em; */
+	margin-bottom: 5%;
 	text-align: start;
 	font-weight: 600;
 }
@@ -956,13 +963,14 @@ header::before {
 	display: none;
 	/* justify-content: center; */
 	align-items: flex-end;
-	width: 50%;
-	height: 90%;
+	/* width: 50%; */
+	/* height: 90%; */
 	font-size: 0.833vw;
 }
 
 .info-wrap.active {
 	display: flex;
+	font-size: 14px;
 }
 
 #material-info {
@@ -975,6 +983,7 @@ header::before {
 	background-color: #fff;
 	box-sizing: border-box;
 	border: 1px solid #ddd;
+	margin-bottom: 15%;
 }
 
 #material-info h4 {
@@ -1591,6 +1600,7 @@ header::before {
 	background: #F4F4F4;
 	border: none;
 	outline-style: none;
+	font-size: 1.2rem;
 	text-align: left;
 	margin: 0 auto;	
 }
@@ -1712,8 +1722,8 @@ footer .headihg_advantage{
 }
 
 .contact_item img{ 
-width: 30px;
-height: 30px;
+    width: 30px;
+/* height: 30px; */
 }
 .contact_item img.map{ 
 	width: 100%;
@@ -1781,12 +1791,12 @@ footer span{
 .popup, #gratitude{
 	display: none;
 	width: 25%;
-	position: absolute;
+	position: fixed;
 	left: 37.5%;
 	top: 27.5%;
 	z-index: 999;
-  box-sizing: border-box;
-  text-align: center;
+  	box-sizing: border-box;
+  	text-align: center;
 	background-color: #fff;
 	text-transform: uppercase;
 	opacity: 0;
