@@ -6,6 +6,7 @@ use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\db\Expression;
 use yii\helpers\Html;
 use yii\helpers\VarDumper;
 use yii\web\BadRequestHttpException;
@@ -78,9 +79,47 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if(Yii::$app->request->isAjax){
-            VarDumper::dump(Yii::$app->request->post());
+        $leads = new Leads();
+
+        if (Yii::$app->request->isAjax) {
+            $data = Yii::$app->request->post();
+            if ($data['data']['form-name'] == 'getDiscont') {
+            $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
+            $leads->phone = $data['data']['phone'];
+            $leads->date_create = new Expression('NOW()');
+            $leads->form_name = $data['data']['form-name'];
+                $arr = [
+                    'array' => [
+                        'name' => $leads->name,
+                        'phone' => $leads->phone,
+                        'forma' => $leads->form_name,
+                    ]
+                ];
+//                VarDumper::dump(Leads::sendEmail($arr),10,1);
+                Leads::sendEmail($arr);
+                $leads->save();
+            }
+            elseif($data['data']['form-name'] == 'getCatalog' ){
+                $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
+                $leads->phone = $data['data']['phone'];
+                $leads->date_create = new Expression('NOW()');
+                $leads->form_name = $data['data']['form-name'];
+                $arr = [
+                    'array' => [
+                        'name' => $leads->name,
+                        'phone' => $leads->phone,
+                        'forma' => $leads->form_name,
+                    ]
+                ];
+                Leads::sendEmail($arr);
+                $leads->save();
+            }
+            elseif ($data['data']['form-name'] == 'getCalculator' ){
+            }
+            VarDumper::dump($data['data'],10,1);
         }
+
+
         return $this->render('index');
     }
 

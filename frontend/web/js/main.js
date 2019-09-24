@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", event => {
-  console.log('---------' + window.location);
   if(isDesktop()){
     sectionScrollInit();
     document.getElementsByTagName('main')[0].classList.add('desktop');
@@ -339,6 +338,7 @@ displayModal();
       $.ajax({
         url: path,
         dataType: 'json',
+        // contentType: "application/json; charset=utf-8",
         type: 'POST',
         data: {data: formsData, '_csrf-frontend': csrfToken},
         success: function(response){
@@ -366,6 +366,7 @@ displayModal();
       $.ajax({
         url: path,
         dataType: 'json',
+        // contentType: "application/json; charset=utf-8",
         type: 'POST',
         data: {data: formsData, '_csrf-frontend': csrfToken},
         success: function(response){
@@ -387,7 +388,7 @@ displayModal();
       let form = event.target;
       let formsData = {
         "form-name": form.getAttribute('data-form'),
-        "form_calculator": form.getElementsByClassName('manifacturer_')[0].value,
+        "manifacturer": form.getElementsByClassName('manifacturer_')[0].value,
         "depth": form.getElementsByClassName('depth_')[0].value,
         "area": form.getElementsByClassName('area_')[0].value,
         "name":  form.getElementsByClassName('fName')[0].value,
@@ -399,6 +400,7 @@ displayModal();
       $.ajax({
         url: path,
         dataType: 'json',
+        // contentType: "application/json; charset=utf-8",
         type: 'POST',
         data: {data: formsData, '_csrf-frontend': csrfToken},
         success: function(response){

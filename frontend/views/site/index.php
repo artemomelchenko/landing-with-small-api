@@ -414,7 +414,7 @@ $this->title = 'ТопДах';
 								</h3>
 								<div class="wrapper_form">
 
-                    <?= Html::beginForm('', 'post', ['class'=>'second_form grid','id'=>'second_form', 'data-form'=>'getCalculator']) ?>
+                    <?= Html::beginForm('', 'post', ['class'=>'second_form grid','id'=>'second_form', 'data-form'=>'getCalculator','enctype' => 'multipart/form-data']) ?>
 										<div class="form_field full_width ">
 											<label for="manifacturer" class="manifacturer"> виробник:</label>
 											<select size="1" name="manifacturer" class="manifacturer_" required>

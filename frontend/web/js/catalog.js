@@ -213,6 +213,22 @@ function catalogBuilder() {
     }
   }
 
+  function showPremium(){
+    const premium = document.getElementsByClassName('premium')[0];
+    const wrap = document.getElementsByClassName('info-wrap')[0];
+    premium.addEventListener('click', function() {
+    wrap.classList.add('active');
+    document.body.addEventListener('click',hideInfo,false);
+    });
+
+    function hideInfo(e){
+      if(e.target != premium) {
+        wrap.classList.remove('active');
+        document.body.removeEventListener('click', hideInfo);
+      }
+    }
+   }
+
   function changeBrand(item) {
     const id = item.id;
     let data = containers.brandData.items.filter(el => el.id == id)[0];
@@ -221,10 +237,11 @@ function catalogBuilder() {
     description(data);
   }
 
-  function renderSection() {
+  function renderSection(){
     brandContainer(containers.brandData.items);
     colorSlider(containers.brandData.items[0]);
     description(containers.brandData.items[0]);
+    showPremium();
     sectionNavigation();
   }
 
