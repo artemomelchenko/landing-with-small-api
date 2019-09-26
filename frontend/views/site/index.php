@@ -39,39 +39,37 @@ $this->title = 'ТопДах';
 						<div class="advantage_grid_container grid advantage_slider">
 							<div class="adventage_item">
 								<img src="img/icon.png" alt="icon">
-								<h3>особливості</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									sed do eiusmod tempor</p>
+								<h3>гарантія</h3>
+								<p>На всі покрівельні матеріали надається офіційна гарантія до 30 років від 
+								виробника</p>
 							</div>
 							<div class="adventage_item">
 								<img src="img/icon.png" alt="icon">
-								<h3>особливості</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									sed do eiusmod tempor</p>
+								<h3>Швидке виконання</h3>
+								<p>Мінімальний термін виробництва замовлення  за 24 години 
+								та не більше ніж 5 діб </p>
 							</div>
 							<div class="adventage_item">
 								<img src="img/icon.png" alt="icon">
-								<h3>особливості</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									sed do eiusmod tempor</p>
+								<h3>безвідходне виробництво</h3>
+								<p>Прорахувуємо ваше замовлення без відходів. Всі залишки ми забираємо за свій рахунок</p>
 							</div>
 							<div class="adventage_item">
 								<img src="img/icon.png" alt="icon">
-								<h3>особливості</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									sed do eiusmod tempor</p>
+								<h3>Безкоштовний замір</h3>
+								<p>Ми проведемо замір об'єкту, консультацію та прорахунок 
+								абсолютно безкоштовно</p>
 							</div>
 							<div class="adventage_item">
 								<img src="img/icon.png" alt="icon">
-								<h3>особливості</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									sed do eiusmod tempor</p>
+								<h3>відеозвіт покрівлі</h3>
+								<p>За бажанням замовника, по завершеню робіт, ми робимо відеозвіт вашої
+								покрівлі</p>
 							</div>
 							<div class="adventage_item">
 								<img src="img/icon.png" alt="icon">
-								<h3>особливості</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									sed do eiusmod tempor</p>
+								<h3>пряма співпраця</h3>
+								<p>Ми на пряму співпрацюємо з постачальниками елітних виробніків металу </p>
 							</div>
 						</div><!-- advantage_grid_container end -->
 					</div><!-- container end -->
@@ -255,23 +253,23 @@ $this->title = 'ТопДах';
 						<div class="work_process_content grid work_process_slider">
 							<div class="content_item">
 							<h2>залишаєте заявку на прорахунок</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-								auctor molestie lorem, at vestibulum ipsum aliquet dictum. </p>
+							<p>Наш консультант зв'яжеться з вами для обговорення деталей та 
+							допоможе обрати оптимальний варіант покривлі.</p>
 							</div>
 							<div class="content_item">
-							<h2>залишаєте заявку на прорахунок</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-								auctor molestie lorem, at vestibulum ipsum aliquet dictum. </p>
+							<h2>Здійснюємо замір об'єкту </h2>
+							<p>Кваліфіковані спеціалісти проводять заміри вашого об'єкту 
+							абсолютно безкоштовно. </p>
 							</div>
 							<div class="content_item">
-							<h2>залишаєте заявку на прорахунок</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-								auctor molestie lorem, at vestibulum ipsum aliquet dictum. </p>
+							<h2>прорахунок замовлення</h2>
+							<p>Наші інженери проводять прорахунок вартості вашого замовлення
+							та складають документацію. </p>
 							</div>
 							<div class="content_item">
-							<h2>залишаєте заявку на прорахунок</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-								auctor molestie lorem, at vestibulum ipsum aliquet dictum. </p>
+							<h2>Віконання замовлення</h2>
+							<p>Погодивши проект та заключівши договір, ми запускаємо у виробництво
+							замовлення. </p>
 							</div>
 						</div>
 						<div class="btn_work_process">
