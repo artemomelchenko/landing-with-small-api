@@ -1367,6 +1367,9 @@ font-size: 14px;
   .header_grid_container {
     margin: 0 9vw 7vw 12.5vw;
   }
+  .logo img{
+    width: 120px;
+  }
   .header_location img, .header_phone img {
     width: 100%;
   }
@@ -1874,6 +1877,9 @@ font-size: 14px;
   font-size: 14px;
   line-height: 1.5rem;
 }
+.btn_work_process {
+  bottom: 5%;
+}
 
 
 /* SECTION WORK PROCEC END*/
@@ -1884,6 +1890,9 @@ font-size: 14px;
 
 #gallery {
   height: 100vh;
+}
+.gallery_grid_container {
+  width: 75%;
 }
 
 .gallery_text {
@@ -2072,6 +2081,12 @@ select {
   .btn_product_discont {
     margin-top: 26px;
     width: 100%;
+}
+.logo img{
+  width: 90px;
+}
+.header_phone img {
+  width: 70%;
 }
   header {
     background-image: url(../img/bg_header_phone.png);

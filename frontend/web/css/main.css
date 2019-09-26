@@ -346,6 +346,9 @@ header::before {
 	margin: 0 9vw 6vw 12.5vw;
 
 }
+.logo img{
+	width: 150px;
+}
 
 
 .header_location {
