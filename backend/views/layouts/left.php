@@ -18,6 +18,24 @@ use common\models\Leads;
                             Заявки
                         </p>
                     </a>
+                    <a href="/admin/categories" class="nav-link <?= Yii::$app->controller->id == 'categories' ? 'active' : '' ?>">
+                        <i class="fas fa-exchange-alt"></i>
+                        <p>
+                            Категорії
+                        </p>
+                    </a>
+                    <a href="/admin/manufacturers" class="nav-link <?= Yii::$app->controller->id == 'manufacturers' ? 'active' : '' ?>">
+                        <i class="fas fa-tools"></i>
+                        <p>
+                            Виробники
+                        </p>
+                    </a>
+                    <a href="/admin/colors" class="nav-link <?= Yii::$app->controller->id == 'colors' ? 'active' : '' ?>">
+                        <i class="fas fa-palette"></i>
+                        <p>
+                            Кольори
+                        </p>
+                    </a>
                 </li>
             </ul>
         </nav>

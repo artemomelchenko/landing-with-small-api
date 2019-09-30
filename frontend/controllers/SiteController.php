@@ -115,7 +115,7 @@ class SiteController extends Controller
                     'array' => [
                         'Ім\'я' => $leads->name,
                         'Мобільний телефон' => $leads->phone,
-                        'Назва форми' => ($leads->form_name == 'getPrice')? 'Отримати розрахунок':'' ,
+                        'Назва форми' => ($leads->form_name == 'getPrice')? 'Дізнатись ціну':'' ,
                     ]
                 ];
 
@@ -141,6 +141,12 @@ class SiteController extends Controller
                 Leads::sendToTelegram($array['array']);
                 Leads::sendEmail($array);
                 $leads->save();
+//                $filePath = '/web/files/sss.pdf';
+//                $filename = 'sss.pdf';
+//                $completePath = Yii::getAlias('@frontend'.$filePath);
+////                VarDumper::dump($completePath,10,1);
+//                Yii::$app->response->sendFile($completePath, $filename);
+//                $this->getView()->registerJs("window.location.assign('http://'+window.location.hostname+'/pdf');");
             }
             elseif ($data['data']['form-name'] == 'getCalculator'){
 
@@ -175,6 +181,15 @@ class SiteController extends Controller
 
 
         return $this->render('index');
+    }
+
+    public function actionPdf(){
+//        die('123');
+        $filePath = '/web/files/sss.pdf';
+        $filename = 'sss.pdf';
+        $completePath = Yii::getAlias('@frontend'.$filePath);
+//        VarDumper::dump($completePath,10,1);
+        return Yii::$app->response->sendFile($completePath, 'sss.pdf')->send();
     }
 
     /**
@@ -357,11 +372,4 @@ class SiteController extends Controller
 //            'model' => $model
 //        ]);
 //    }
-    public function actionPdf() {
-        $filePath = '/web/files/sss.pdf';
-        $filename = 'sss.pdf';
-        $completePath = Yii::getAlias('@frontend'.$filePath);
-
-        return Yii::$app->response->sendFile($completePath, 'sss.pdf');
-    }
 }

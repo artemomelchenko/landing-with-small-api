@@ -8,6 +8,7 @@ use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\VarDumper;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
@@ -46,6 +47,7 @@ AppAsset::register($this);
     <?php endif; ?>
 
     <?php if (Yii::$app->user->identity): ?>
+        <?php VarDumper::dump(Yii::$app->user->identity,10,1); ?>
         <?= $this->render('footer') ?>
     <?php endif; ?>
 

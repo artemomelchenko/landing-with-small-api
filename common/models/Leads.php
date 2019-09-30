@@ -89,4 +89,13 @@ class Leads extends \yii\db\ActiveRecord
 //            ->setTextBody($a)
             ->send();
     }
+    public static function actionPdf(){
+        $filePath = '/web/files/sss.pdf';
+        $filename = 'sss.pdf';
+        $completePath = Yii::getAlias('@frontend'.$filePath);
+
+        return Yii::$app->response->sendFile($completePath, 'sss.pdf');
+    }
+
+
 }

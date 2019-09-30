@@ -27,17 +27,19 @@ class LeadsController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
+                        'actions' => ['view', 'index', 'create', 'update', 'delete'],
                         'allow' => true,
-                        'actions' => ['index'],
                         'roles' => ['@'],
                     ],
-                    [
-                        'allow' => true,
-                        'actions' => ['view'],
-                        'roles' => ['@',],
-                    ],
+
+                ],
             ],
-            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST']
+                ]
+            ]
         ];
     }
 
