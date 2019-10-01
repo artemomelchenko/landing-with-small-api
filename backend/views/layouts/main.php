@@ -47,7 +47,7 @@ AppAsset::register($this);
     <?php endif; ?>
 
     <?php if (Yii::$app->user->identity): ?>
-        <?php VarDumper::dump(Yii::$app->user->identity,10,1); ?>
+
         <?= $this->render('footer') ?>
     <?php endif; ?>
 

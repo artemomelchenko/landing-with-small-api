@@ -36,6 +36,12 @@ use common\models\Leads;
                             Кольори
                         </p>
                     </a>
+                    <a href="/admin/items" class="nav-link <?= Yii::$app->controller->id == 'items' ? 'active' : '' ?>">
+                        <i class="fas fa-sitemap"></i>
+                        <p>
+                            Товари
+                        </p>
+                    </a>
                 </li>
             </ul>
         </nav>
