@@ -378,7 +378,7 @@
   padding-top: 1vw;
 }
 .adventage_item p{
-	font-size: 1vw;
+	font-size: 12px;
 }
 .backgraund_img img{
 	height: 60vh;
@@ -389,9 +389,7 @@
   bottom: 4vw;
 }
 /*---------------- Sectio 3 ---------------*/
-#catalog{
-  border: 1px solid red;
-}
+
 #catalog .over_line {
   padding-top: 5vh; 
 }
@@ -476,7 +474,7 @@
   line-height: 1.8vw;
 }
 .btn_work_process {
-	bottom: -2%;
+	bottom: -10%;
 }
 }
 .btn_work_process a{
@@ -869,7 +867,7 @@ font-size: 14px;
     width: 100%;
     padding: 0;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: var(--main_black);
     font-weight: 600;
 
@@ -2075,6 +2073,9 @@ select {
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
+  main {
+    overflow: hidden;
+  }
   .background-animation .line {
     width: 25%;
   }
