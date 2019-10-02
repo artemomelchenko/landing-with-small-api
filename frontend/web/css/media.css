@@ -559,7 +559,7 @@ font-size: 14px;
 .contact_info{
   grid-gap: 15px;
 }
-}
+
 /* .up_svg_second{
   top: -4%;
 } */
@@ -567,7 +567,7 @@ font-size: 14px;
 /* .down_svg_second {
   bottom: -6%;
 } */
-
+}
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1280px) {
   .work_process_grid_container {
