@@ -171,8 +171,8 @@ $this->title = 'ТопДах';
 							<h3 class="heading_form">завантажити каталог</h3>
 
                                 <?= Html::beginForm('', 'post', ['class'=>'first_form','enctype' => 'multipart/form-data','id'=>'first_form', 'data-form'=>'getCatalog']) ?>
-								<label for="first_Name" class="first_name"> ваше ім'я:</label>
-								<input type="text" class="fName" name="first_name" value="" minlength="2" required>
+								<label for="Ffirst_name" class="first_name"> ваше ім'я:</label>
+								<input type="text" id="Ffirst_name" class="fName" name="first_name" value="" minlength="2" required>
 								<label for="phone" class="phone"> ваш номер:</label>
 								<input type="text" class="tel" name="phone" value="" required>
 								<button class="btn_product" type="submit">скачати</button>
@@ -415,7 +415,7 @@ $this->title = 'ТопДах';
                     <?= Html::beginForm('', 'post', ['class'=>'second_form grid','id'=>'second_form', 'data-form'=>'getCalculator','enctype' => 'multipart/form-data']) ?>
 										<div class="form_field full_width ">
 											<label for="Manifacturer" class="manifacturer"> виробник:</label>
-											<select size="1" name="manifacturer" class="manifacturer_" required>
+											<select size="1" name="manifacturer" id="Manifacturer" class="manifacturer_" required>
 												<option value="" disabled>оберіть виробника</option>
 												<option value="Чебурашка">Чебурашка</option>
 												<option selected value="Крокодил Гена">Крокодил Гена</option>
@@ -425,19 +425,19 @@ $this->title = 'ТопДах';
 										</div>
 										<div class="form_field">
 											<label for="Depth" class="depth"> товщина (мм):</label>
-											<input type="number" name="depth" value="" class='depth_' required>
+											<input type="number" id="Depth" name="depth" value="" class='depth_' required>
 										</div>
 										<div class="form_field">
 											<label for="Area" class="area"> площа (мм):</label>
-											<input type="number" name="area" value="" class='area_' required>
+											<input type="number" id="Area" name="area" value="" class='area_' required>
 										</div>
 										<div class="form_field full_width">
 											<label for="Second_name" class="name">ваше ім'я:</label>
-											<input type="text" name="name"  value="" minlength="2" required class='fName'>
+											<input type="text"  id="Second_name" name="name"  value="" minlength="2" required class='fName'>
 										</div>
 										<div class="form_field full_width">
 											<label for="Second_phone" class="second_phone">ваш номер:</label>
-											<input type="text" class="tel" name="phone" value="" required>
+											<input type="text" id="Second_phone" class="tel" name="phone" value="" required>
 										</div>
 										<div class="form_field full_width">
 											<button class="btn_product" type="submit"> <span class="dn">отримати</span>	 розрахунок</button>
