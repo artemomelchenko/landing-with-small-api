@@ -161,9 +161,9 @@ $this->title = 'ТопДах';
 								<path d="M96.5 20L116 0L130 20H96.5Z" fill="#7A010A" />
 								<path d="M116 0H41.0786L0 43H74.9214L116 0Z" fill="url(#paint0_linear)" />
 								<defs>
-									<linearGradient id="paint0_linear" x1="58" y1="0" x2="58" y2="43"
+									<linearGradient id="paint0_linear_up" x1="58" y1="0" x2="58" y2="43"
 										gradientUnits="userSpaceOnUse">
-										<stop stop-color="#FA0105" />
+										<stop offset="1" stop-color="#FA0105" />
 										<stop offset="1" stop-color="#FF3336" />
 									</linearGradient>
 								</defs>
@@ -171,10 +171,10 @@ $this->title = 'ТопДах';
 							<h3 class="heading_form">завантажити каталог</h3>
 
                                 <?= Html::beginForm('', 'post', ['class'=>'first_form','enctype' => 'multipart/form-data','id'=>'first_form', 'data-form'=>'getCatalog']) ?>
-								<label for="firstName" class="first_name"> ваше ім'я:</label>
+								<label for="first_Name" class="first_name"> ваше ім'я:</label>
 								<input type="text" class="fName" name="first_name" value="" minlength="2" required>
 								<label for="phone" class="phone"> ваш номер:</label>
-								<input type="phone" class="tel" name="phone" value="" required>
+								<input type="text" class="tel" name="phone" value="" required>
 								<button class="btn_product" type="submit">скачати</button>
 								<div class="decoration">
 									<img class="locker" src="img/Frame.png" alt="locker image">
@@ -187,9 +187,9 @@ $this->title = 'ТопДах';
 								<path d="M18.5 32L8.00002 43L0.499999 32L18.5 32Z" fill="#7A010A" />
 								<path d="M8 43H82.9214L124 0H49.0786L8 43Z" fill="url(#paint0_linear)" />
 								<defs>
-									<linearGradient id="paint0_linear" x1="66" y1="43" x2="66" y2="0"
+									<linearGradient id="paint0_linear_down" x1="66" y1="43" x2="66" y2="0"
 										gradientUnits="userSpaceOnUse">
-										<stop stop-color="#FA0105" />
+										<stop offset="1" stop-color="#FA0105" />
 										<stop offset="1" stop-color="#FF3336" />
 									</linearGradient>
 								</defs>
@@ -299,7 +299,7 @@ $this->title = 'ТопДах';
 				<div class="gallery_grid_container grid">
 					<div class="tape_left">
 						<span id="parallelogram"></span>
-						<span id="square"></span>
+						<span class="square"></span>
 					</div>
 					<div class="gallery_foto1 foto">
 						 <span>приватний будинок</span>
@@ -317,7 +317,7 @@ $this->title = 'ТопДах';
 						 <span>приватний будинок</span>
 					</div>
 					<div class="tape_right">
-						<span id="square"></span>
+						<span class="square"></span>
 						<span id="parallelogram_left"></span>
 					</div>
 				</div>
@@ -401,8 +401,8 @@ $this->title = 'ТопДах';
 										<path d="M96.5 20L116 0L130 20H96.5Z" fill="#7A010A"/>
 										<path d="M116 0H41.0786L0 43H74.9214L116 0Z" fill="url(#paint0_linear)"/>
 										<defs>
-										<linearGradient id="paint0_linear" x1="58" y1="0" x2="58" y2="43" gradientUnits="userSpaceOnUse">
-										<stop stop-color="#FA0105"/>
+										<linearGradient id="paint0_linear_up_second" x1="58" y1="0" x2="58" y2="43" gradientUnits="userSpaceOnUse">
+										<stop offset="1" stop-color="#FA0105"/>
 										<stop offset="1" stop-color="#FF3336"/>
 										</linearGradient>
 										</defs>
@@ -414,9 +414,9 @@ $this->title = 'ТопДах';
 
                     <?= Html::beginForm('', 'post', ['class'=>'second_form grid','id'=>'second_form', 'data-form'=>'getCalculator','enctype' => 'multipart/form-data']) ?>
 										<div class="form_field full_width ">
-											<label for="manifacturer" class="manifacturer"> виробник:</label>
+											<label for="Manifacturer" class="manifacturer"> виробник:</label>
 											<select size="1" name="manifacturer" class="manifacturer_" required>
-												<option disabled>оберіть виробника</option>
+												<option value="" disabled>оберіть виробника</option>
 												<option value="Чебурашка">Чебурашка</option>
 												<option selected value="Крокодил Гена">Крокодил Гена</option>
 												<option value="Шапокляк">Шапокляк</option>
@@ -424,19 +424,19 @@ $this->title = 'ТопДах';
 											</select>
 										</div>
 										<div class="form_field">
-											<label for="depth" class="depth"> товщина (мм):</label>
+											<label for="Depth" class="depth"> товщина (мм):</label>
 											<input type="number" name="depth" value="" class='depth_' required>
 										</div>
 										<div class="form_field">
-											<label for="area" class="area"> площа (мм):</label>
+											<label for="Area" class="area"> площа (мм):</label>
 											<input type="number" name="area" value="" class='area_' required>
 										</div>
 										<div class="form_field full_width">
-											<label for="second_name" class="name">ваше ім'я:</label>
+											<label for="Second_name" class="name">ваше ім'я:</label>
 											<input type="text" name="name"  value="" minlength="2" required class='fName'>
 										</div>
 										<div class="form_field full_width">
-											<label for="second_phone" class="second_phone">ваш номер:</label>
+											<label for="Second_phone" class="second_phone">ваш номер:</label>
 											<input type="text" class="tel" name="phone" value="" required>
 										</div>
 										<div class="form_field full_width">
@@ -453,8 +453,8 @@ $this->title = 'ТопДах';
 									<path d="M18.5 32L8.00002 43L0.499999 32L18.5 32Z" fill="#7A010A"/>
 									<path d="M8 43H82.9214L124 0H49.0786L8 43Z" fill="url(#paint0_linear)"/>
 									<defs>
-									<linearGradient id="paint0_linear" x1="66" y1="43" x2="66" y2="0" gradientUnits="userSpaceOnUse">
-									<stop stop-color="#FA0105"/>
+									<linearGradient id="paint0_linear_down_second" x1="66" y1="43" x2="66" y2="0" gradientUnits="userSpaceOnUse">
+									<stop offset="1" stop-color="#FA0105"/>
 									<stop offset="1" stop-color="#FF3336"/>
 									</linearGradient>
 									</defs>

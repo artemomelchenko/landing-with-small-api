@@ -36,7 +36,7 @@ AppAsset::register($this);
 							<h3 class="heading_form">отримати знижку</h3>
 
                                 <?= Html::beginForm('', 'post', ['class'=>'first_form', 'id'=>'popup_form']) ?>
-								<label for="first_name" class="first_name"> ваше ім'я:</label>
+								<label for="first_Name" class="first_name"> ваше ім'я:</label>
 								<input id="firstNname" class="name" type="text" name="first_name"  minlength="2" required >
 								<label for="phone" class="phone"> ваш номер:</label>
 								<input id="phone" class="tel" type="text" name="phone" required>
@@ -81,13 +81,13 @@ AppAsset::register($this);
                 <div class="header_location">
                     <ul>
                         <li><img src="img/icon_location.svg" alt="icon_location"></li>
-                        <li> <span header_location_text>м. Чернівці <br> вул. Головна 115</span></li>
+                        <li> <span class="header_location_text" >м. Чернівці <br> вул. Головна 115</span></li>
                     </ul>
                 </div>
                 <div class="header_phone">
                     <ul>
                         <li> <a href="tel:+380000000000"> <img src="img/icon_phone.svg" alt="icon_phone"></a></li>
-                        <li><span header_location_text>0 50 50 50 255 <br> 0 50 50 50 255</span></li>
+                        <li><span class="header_location_text" >0 50 50 50 255 <br> 0 50 50 50 255</span></li>
                     </ul>
                 </div>
 
