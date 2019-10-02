@@ -159,7 +159,7 @@ $this->title = 'ТопДах';
 							<svg class="up_svg" width="130" height="43" viewBox="0 0 130 43" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<path d="M96.5 20L116 0L130 20H96.5Z" fill="#7A010A" />
-								<path d="M116 0H41.0786L0 43H74.9214L116 0Z" fill="url(#paint0_linear)" />
+								<path d="M116 0H41.0786L0 43H74.9214L116 0Z" fill="url(#paint0_linear_up)" />
 								<defs>
 									<linearGradient id="paint0_linear_up" x1="58" y1="0" x2="58" y2="43"
 										gradientUnits="userSpaceOnUse">
@@ -185,7 +185,7 @@ $this->title = 'ТопДах';
 							<svg class="down_svg" width="124" height="43" viewBox="0 0 124 43" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<path d="M18.5 32L8.00002 43L0.499999 32L18.5 32Z" fill="#7A010A" />
-								<path d="M8 43H82.9214L124 0H49.0786L8 43Z" fill="url(#paint0_linear)" />
+								<path d="M8 43H82.9214L124 0H49.0786L8 43Z" fill="url(#paint0_linear_down)" />
 								<defs>
 									<linearGradient id="paint0_linear_down" x1="66" y1="43" x2="66" y2="0"
 										gradientUnits="userSpaceOnUse">
@@ -399,7 +399,7 @@ $this->title = 'ТопДах';
 							<div class="form_calculator">
 									<svg class="up_svg_second" width="130" height="43" viewBox="0 0 130 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M96.5 20L116 0L130 20H96.5Z" fill="#7A010A"/>
-										<path d="M116 0H41.0786L0 43H74.9214L116 0Z" fill="url(#paint0_linear)"/>
+										<path d="M116 0H41.0786L0 43H74.9214L116 0Z" fill="url(#paint0_linear_up_second)"/>
 										<defs>
 										<linearGradient id="paint0_linear_up_second" x1="58" y1="0" x2="58" y2="43" gradientUnits="userSpaceOnUse">
 										<stop offset="1" stop-color="#FA0105"/>
@@ -451,7 +451,7 @@ $this->title = 'ТопДах';
 								</div>
 								<svg class="down_svg_second" width="124" height="43" viewBox="0 0 124 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M18.5 32L8.00002 43L0.499999 32L18.5 32Z" fill="#7A010A"/>
-									<path d="M8 43H82.9214L124 0H49.0786L8 43Z" fill="url(#paint0_linear)"/>
+									<path d="M8 43H82.9214L124 0H49.0786L8 43Z" fill="url(#paint0_linear_down_second)"/>
 									<defs>
 									<linearGradient id="paint0_linear_down_second" x1="66" y1="43" x2="66" y2="0" gradientUnits="userSpaceOnUse">
 									<stop offset="1" stop-color="#FA0105"/>
