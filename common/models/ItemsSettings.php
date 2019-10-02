@@ -63,6 +63,6 @@ class ItemsSettings extends \yii\db\ActiveRecord
      */
     public function getItem()
     {
-        return $this->hasOne(Item::className(), ['id' => 'id_item']);
+        return $this->hasOne(Items::className(), ['id' => 'id_item']);
     }
 }

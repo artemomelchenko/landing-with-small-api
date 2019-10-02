@@ -64,13 +64,11 @@ class ItemsController extends Controller
     }
 
     public function actionItem($id)
-    {  $items = new Items();
-        $id =  Items::find()->where(['id_categories' => $id])->all();
-//        VarDumper::dump($ids,10,1);
+    {
         $searchModel = new ItemsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->searches(Yii::$app->request->queryParams, $id);
+//        VarDumper::dump($dataProvider,10,1);
         return $this->render('item', [
-            'items' => $this->findModel($id),
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

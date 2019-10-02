@@ -14,9 +14,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
     <div class="card">
-    <p>
+
         <?= Html::a(Yii::t('app', 'Create Manufacturers'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

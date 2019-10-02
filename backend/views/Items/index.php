@@ -8,7 +8,7 @@ use yii\helpers\VarDumper;
 /* @var $searchModel common\models\ItemsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Items');
+//$this->title = Yii::t('app', 'Товари');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="items-index">
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+    <div class="card">
     <?=GridView::widget([
         'dataProvider' => $dataProviders,
 
@@ -34,12 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>'',
                 'format'=>'html',
                 'content'=> function($model){
-        VarDumper::dump($model,10,1);
+//        VarDumper::dump($model,10,1);
                     return  Html::a('<i class="fa fa-eye" aria-hidden="true">',[ '/items/item','id' => $model->id.'']);
                 },
             ],
         ],
     ]); ?>
 
-
+</div>
 </div>
