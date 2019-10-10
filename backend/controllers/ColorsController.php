@@ -25,12 +25,19 @@ class ColorsController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
+                        'actions' => ['view', 'index', 'create', 'update', 'delete'],
                         'allow' => true,
-                        'actions' => ['index', 'view', 'update', 'delete', 'create'],
-                        'roles' => ['@',],
+                        'roles' => ['@'],
                     ],
+
                 ],
             ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST']
+                ]
+            ]
         ];
     }
 

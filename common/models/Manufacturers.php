@@ -27,7 +27,7 @@ class Manufacturers extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['img'], 'required'],
+//            [['img'], 'required'],
             [['name', 'img'], 'string', 'max' => 255],
         ];
     }

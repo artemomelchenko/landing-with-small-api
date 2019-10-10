@@ -15,9 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
 
     <div class="card">
-        <?= Html::a(Yii::t('app', 'Create Items'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Items'), ['create', 'id' => Yii::$app->request->get('id')], ['class' => 'btn btn-success']) ?>
 
-
+<?php \yii\helpers\VarDumper::dump(Yii::$app->request->get('id'),10,1) ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([

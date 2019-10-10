@@ -41,9 +41,7 @@ AppAsset::register($this);
     <?php endif; ?>
 
     <?php if (Yii::$app->user->isGuest): ?>
-
         <?= $content ?>
-
     <?php endif; ?>
 
     <?php if (Yii::$app->user->identity): ?>

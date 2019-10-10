@@ -7,5 +7,5 @@ return [
     'Thickness' =>'Товщина',
     'Square' => 'Площа',
     'Comment'=>'Коментарі',
-    'Date Create' => 'Дата створення'
+    'Date Create' => 'Дата створення',
 ];

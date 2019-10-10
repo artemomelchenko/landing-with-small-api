@@ -3,13 +3,20 @@
 namespace backend\controllers;
 use common\models\Categories;
 use common\models\CategoriesSearch;
+use common\models\Colors;
+use common\models\ItemsImg;
+use common\models\ItemsSettings;
+use common\models\Manufacturers;
 use Yii;
 use common\models\Items;
 use common\models\ItemsSearch;
+use yii\base\Model;
+use yii\filters\AccessControl;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ItemsController implements the CRUD actions for Items model.
@@ -22,13 +29,36 @@ class ItemsController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['view', 'index', 'create', 'update', 'delete', 'item'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['api'],
+                        'allow' => true,
+                        'roles' => ['?', '@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+                    'delete' => ['POST']
+                ]
+            ]
         ];
+//        return [
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'delete' => ['POST'],
+//                ],
+//            ],
+//        ];
     }
 
     /**
@@ -56,7 +86,7 @@ class ItemsController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($category_id, $id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -79,17 +109,58 @@ class ItemsController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new Items();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $colors = Colors::find()->all();
+        $manufacturers = Manufacturers::find()->all();
+
+        $itemsSettings = [];
+        $itemsImg = [];
+
+        foreach ($colors as $color)
+        {
+
+            $itemsImg[] = new ItemsImg();
+        }
+
+        foreach ($manufacturers as $manufacturer)
+        {
+
+            $itemsSettings[] = new ItemsSettings();
+        }
+
+        $post = Yii::$app->request->post();
+
+        if ($post)
+        {
+
+            $model->allSaving($post, $colors, $manufacturers, $id);
+
+            return $this->redirect([
+                'view',
+                'category_id' => $id,
+                'id' => $model->id
+            ]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'colors' => $colors,
+            'manufacturers' => $manufacturers,
+            'itemsSettings' => $itemsSettings,
+            'itemsImg' => $itemsImg,
         ]);
+    }
+
+    public function actionApi($id){
+
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $result = Categories::getApi($id);
+
+        return $result;
     }
 
     /**
@@ -102,6 +173,8 @@ class ItemsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $colors = Colors::find()->all();
+        $manufacturers = Manufacturers::find()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -109,6 +182,10 @@ class ItemsController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'colors' => $colors,
+            'manufacturers' => $manufacturers,
+            'itemsSettings' => $itemsSettings,
+            'itemsImg' => $itemsImg,
         ]);
     }
 

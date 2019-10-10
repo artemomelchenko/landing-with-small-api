@@ -16,7 +16,7 @@ use Yii;
  * @property int $id_manufacturer
  * @property int $id_item
  *
- * @property Item $item
+ * @property Items $item
  */
 class ItemsSettings extends \yii\db\ActiveRecord
 {
@@ -64,5 +64,9 @@ class ItemsSettings extends \yii\db\ActiveRecord
     public function getItem()
     {
         return $this->hasOne(Items::className(), ['id' => 'id_item']);
+    }
+    public function getManufacturer()
+    {
+        return $this->hasOne(Manufacturers::className(), ['id' => 'id_manufacturer']);
     }
 }

@@ -76,7 +76,7 @@ class ItemsSearch extends Items
     {
 //        $category = new Categories();
 //        $id = $category->find()->where(['id'=>$category->id]);
-        $query = Items::find()->where(['id_categories'=>$id]);
+        $query = Items::find()->with('itemsSettings')->where(['id_categories'=>$id]);
 //        VarDumper::dump($id,10,1);
         // add conditions that should always apply here
 

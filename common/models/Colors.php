@@ -11,11 +11,14 @@ use Yii;
  * @property string $name
  * @property string $hex
  *
- * @property ColorsItem[] $colorsItems
- * @property Item[] $items
+ * @property ColorsItems[] $colorsItems
+ * @property Items[] $items
  */
 class Colors extends \yii\db\ActiveRecord
 {
+
+    public $boolean;
+
     /**
      * {@inheritdoc}
      */
@@ -44,15 +47,8 @@ class Colors extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
             'hex' => Yii::t('app', 'Hex'),
+            'boolean' => Yii::t('app', 'Booleans'),
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getColorsItems()
-    {
-        return $this->hasMany(ColorsItem::className(), ['colors_id' => 'id']);
     }
 
     /**

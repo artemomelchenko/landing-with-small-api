@@ -50,6 +50,79 @@ class Categories extends \yii\db\ActiveRecord
      */
     public function getItems()
     {
-        return $this->hasMany(Item::className(), ['id_category' => 'id']);
+        return $this->hasMany(Items::className(), ['id_categories' => 'id']);
+    }
+
+    public static function getApi($id)
+    {
+
+        $categories = Categories::find()
+            ->with(['items' => function ($query)
+            {
+
+                $query
+                    ->with(['itemsImg' => function($query)
+                    {
+
+                        $query
+                            ->with('color')
+                            ->all();
+                    }])
+                    ->with(['itemsSettings' => function($query)
+                    {
+
+                        $query
+                            ->with('manufacturer')
+                            ->all();
+                    }])
+                    ->all();
+            }])
+            ->where(['id' => $id])
+            ->asArray()
+            ->one();
+
+        $result = [];
+
+        foreach ($categories['items'] as $item)
+        {
+
+            $result['id'] = $categories['id'];
+            $result['type'] = $categories['name'];
+            $result['name'] = $item['name'];
+
+            foreach ($item['itemsImg'] as $value)
+            {
+
+                $result['colorSlider'][] =
+                    [
+                        'img' => $value['img'],
+                        'color' => $value['color']['hex'],
+                        'colorName' => $value['color']['name']
+                    ];
+            }
+
+            foreach ($item['itemsSettings'] as $itemsSetting)
+            {
+
+                $result['description'][] =
+                    [
+                        'name' => $itemsSetting['manufacturer']['name'],
+                        'brandsImages' => $itemsSetting['manufacturer']['img'],
+                        'price' => $itemsSetting['price'],
+                        'propertys' => [
+                            'zinc' => $itemsSetting['zinc'],
+                            'length' => $item['length'],
+                            'height' => $item['height'],
+                            'full_weight' => $item['full_weight'],
+                            'weight' => $item['weight'],
+                            'garanty' => $itemsSetting['garanty'],
+                            'premium' => $itemsSetting['premium'],
+                            'premium_text' => $itemsSetting['premium_text'],
+                        ]
+                    ];
+            }
+        }
+
+        return $result;
     }
 }
