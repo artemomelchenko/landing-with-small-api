@@ -15,27 +15,8 @@ $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="manufacturers-form">
-
-    <div class="card">
-        <?php $form = ActiveForm::begin(['id' => 'saving']); ?>
-
-        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-        <!--    --><?//= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'img')->widget(FileInput::classname(), [
-            'options' => ['accept' => 'web/img/manufactures/'],
-            'pluginOptions' => [
-                'initialPreview'=>[
-                    isset($model->img) ? Html::img('/img/manufacturers/' . $model->img, ['style' => 'width:200px;']) : ''
-                ],
-                'showRemove' => false,
-                'overwriteInitial'=>true
-            ]
-        ]); ?>
-        <div class="form-group">
-            <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
-        </div>
-
-        <?php ActiveForm::end(); ?>
-    </div>
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
 </div>

@@ -12,9 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="manufacturers-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <div class="card">
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-    </div>
 </div>

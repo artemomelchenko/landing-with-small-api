@@ -33,7 +33,8 @@ use kartik\file\FileInput;
                             <div class="row">
                                 <div class="col-md-12">
                                     <?= $color->name ?>
-                                    <?= $form->field($color, 'boolean['.$k.']')->checkbox()->label(false) ?>
+<!--                                    --><?php //\yii\helpers\VarDumper::dump($color['boolean'],10,1) ?>
+                                    <?= $form->field($color, 'boolean['.$color->id.']')->checkbox()->label(false) ?>
                                 </div>
                                 <div class="col-md-12">
                                     <?= Html::tag('div', '', ['style' => "background:".$color->hex.";width:50px;height:50px;"]); ?>
@@ -41,9 +42,13 @@ use kartik\file\FileInput;
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <?= $form->field($itemsImg[$k], 'img['.$k.']')->widget(FileInput::classname(), [
+<!--                            --><?php //\yii\helpers\VarDumper::dump($itemsImg[$k]->img,10,1) ?>
+                            <?= $form->field($itemsImg[$k], 'img['.$color->id.']')->widget(FileInput::classname(), [
                               'options' => ['accept' => 'image/*'],
                                 'pluginOptions' => [
+                                    'initialPreview'=>[
+                                        isset($itemsImg[$k]->img) ? Html::img("/img/items/" . $itemsImg[$k]->img, ['style' => 'width:200px;']) : ''
+                                    ],
                                     'showPreview' => true,
                                     'showCaption' => false,
                                     'showRemove' => false,
@@ -93,6 +98,7 @@ use kartik\file\FileInput;
                                 <?= $form->field($itemsSettings[$key], 'zinс['.$manufacturer->id.']')->textInput(['maxlength' => true]) ?>
                             </div>
                             <div class="col-md-2">
+<!--                                --><?php //\yii\helpers\VarDumper::dump($itemsSettings[$key],10,1) ?>
                                 <?= $form->field($itemsSettings[$key], 'price['.$manufacturer->id.']')->textInput(['maxlength' => true]) ?>
                             </div>
                             <div class="col-md-2">

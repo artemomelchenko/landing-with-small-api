@@ -11,32 +11,41 @@ $this->title = Yii::t('app', 'Items');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="items-index">
-
-<!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
-
     <div class="card">
-        <?= Html::a(Yii::t('app', 'Create Items'), ['create', 'id' => Yii::$app->request->get('id')], ['class' => 'btn btn-success']) ?>
+        <div class="card-body">
+            <h1><?= Html::encode($this->title) ?></h1>
 
-<?php \yii\helpers\VarDumper::dump(Yii::$app->request->get('id'),10,1) ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            <?= Html::a(Yii::t('app', 'Create Items'), ['create', 'id' => Yii::$app->request->get('id')], ['class' => 'btn btn-success']) ?>
 
-            'id',
-            'name',
-            'length',
-            'height',
-            'full_weight',
-            'weight',
-            //'id_categories',
+            <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
 
+//            'id',
+                    'name',
+                    'length',
+                    'height',
+                    'full_weight',
+                    'weight',
+                    //'id_categories',
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'template' => '{view} {update} {delete}',
+                        'buttons' => [
+                            'view' => function ($url, $model) {
+                                return Html::a(
+                                    '<span class="glyphicon glyphicon-eye-open"></span>',
+                                    '/admin/items/view?category_id=' . $model->id_categories . '&id=' . $model->id);
+                            },
+                        ],
+                    ],
+                ],
+            ]); ?>
+        </div>
     </div>
 </div>

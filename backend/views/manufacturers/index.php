@@ -12,35 +12,35 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="manufacturers-index">
 
-<!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
+    <!--    <h1>--><? //= Html::encode($this->title) ?><!--</h1>-->
     <div class="card">
+        <div class="card-body">
+            <?= Html::a(Yii::t('app', 'Create Manufacturers'), ['create'], ['class' => 'btn btn-success']) ?>
 
-        <?= Html::a(Yii::t('app', 'Create Manufacturers'), ['create'], ['class' => 'btn btn-success']) ?>
 
+            <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
 
 //            'id',
-            'name',
-             [
-                        'label' => 'Виробник',
+                    'name',
+                    [
+                        'attribute' => 'img',
                         'format' => 'raw',
                         'value' => function ($data) {
-                            return Html::img(  '/img/manufacturers/'.$data->img, [
+                            return Html::img('/img/manufacturers/' . $data->img, [
                                 'alt' => 'Виробник',
                                 'style' => 'width:150px;'
                             ]);
                         },
                     ],
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
+                    ['class' => 'yii\grid\ActionColumn'],
+                ],
+            ]); ?>
+        </div>
     </div>
 </div>

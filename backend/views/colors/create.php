@@ -10,11 +10,10 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Colors'), 'url' => [
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="colors-create">
-    <div class="card">
+
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-    </div>
 </div>

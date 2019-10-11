@@ -172,12 +172,26 @@ class ItemsController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
         $colors = Colors::find()->all();
         $manufacturers = Manufacturers::find()->all();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $itemsImg = Items::outputDataForUpdateImgs($id, $colors);
+        $itemsSettings = Items::outputDataForUpdateManufacturers($id, $manufacturers);
+
+        $post = Yii::$app->request->post();
+
+        if ($post)
+        {
+
+            Items::allUpdating($post, $colors, $manufacturers, $model, $itemsImg, $itemsSettings);
+
+            return $this->redirect([
+                'view',
+                'category_id' => $model->id_categories,
+                'id' => $model->id
+            ]);
         }
 
         return $this->render('update', [
@@ -198,9 +212,12 @@ class ItemsController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $id_category = $model->id_categories;
 
-        return $this->redirect(['index']);
+        $model->delete();
+
+        return $this->redirect(['item', 'id' => $id_category]);
     }
 
     /**
