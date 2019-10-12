@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 ?>
 
@@ -12,11 +13,7 @@ use yii\helpers\Html;
     </ul>
         <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-        <?= Html::beginForm(['/site/logout'], 'post'); ?>
-        <?= Html::submitButton(
-        '<i class="fa fa-sign-out-alt" aria-hidden="true"></i>',
-        ['class' => 'btn btn-link logout']
-        ); ?>
+        <?= Html::a('<i class="fa fa-sign-out-alt" aria-hidden="true"></i>', ['site/logout'], ['data' => ['method' => 'post']]) ?>
         <?php Html::endForm() ?>
 
     </li>

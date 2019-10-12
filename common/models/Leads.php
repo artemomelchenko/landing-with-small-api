@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "leads".
@@ -59,28 +60,42 @@ class Leads extends \yii\db\ActiveRecord
         return $this->hasOne(LeadsSettings::className(), ['leads_id' => 'id']);
     }
     public static function sendToTelegram(array $arr){
+//        if($['forma'] ==''){
+//
+//        }
+        $token ='698566873:AAH29686LePlwWf4nkCWA-h883KhKp5uGow';
+        $chat_id = '-361536928';
 
-        $token ='981466372:AAG_XaJxqOTydNivZP-2zbTeoQLDkXDKkN0';
-        $chat_id = '-396864039';
+        $txt = '';
+        foreach ($arr as $key => $value) {
+            $txt .= "<b>" . $key . "</b> " . $value."%0A";
 
-        $txt = 'прівєт';
+        };
+//            $txt = 'Ім\'я-'.$key['name'].':Номер телефону-'.$key['phone'].':Назва форми-'.$key['forma'];
 
-//        foreach ($arr as $key => $value) {
-//            $txt .= "<b>" . $key . "</b> " . $value . "%0A";
-//        };
+
 
      return $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}", "r");
     }
-    public static function sendEmail(array $array){
+    public static function sendEmail(array $arr){
         return Yii::$app->mailer->compose([
             'html' => 'message',
             'text' => 'message',
 
-        ],$array)
+        ],$arr)
             ->setTo(Yii::$app->params['adminEmail'])
             ->setFrom([Yii::$app->params['adminEmail'] => 'test'])
             ->setSubject('Заявка')
 //            ->setTextBody($a)
             ->send();
     }
+    public static function actionPdf(){
+        $filePath = '/web/files/sss.pdf';
+        $filename = 'sss.pdf';
+        $completePath = Yii::getAlias('@frontend'.$filePath);
+
+        return Yii::$app->response->sendFile($completePath, 'sss.pdf');
+    }
+
+
 }

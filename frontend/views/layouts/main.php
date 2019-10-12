@@ -90,7 +90,6 @@ AppAsset::register($this);
                         <li><span class="header_location_text" >0 50 50 50 255 <br> 0 50 50 50 255</span></li>
                     </ul>
                 </div>
-
         <?= $content ?>
                 <footer id="footer">
                 <div class="background-animation white">

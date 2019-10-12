@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\Leads;
+use common\models\LeadsSettings;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -80,49 +81,115 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $leads = new Leads();
+        $leadset = new LeadsSettings();
 
         if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
-            VarDumper::dump($data['data'],10,1);
             if ($data['data']['form-name'] == 'getDiscont') {
             $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
             $leads->phone = $data['data']['phone'];
             $leads->date_create = new Expression('NOW()');
             $leads->form_name = $data['data']['form-name'];
-                $arr = [
+
+                $array = [
                     'array' => [
-                        'name' => $leads->name,
-                        'phone' => $leads->phone,
-                        'forma' => $leads->form_name,
+                        'Ім\'я' => $leads->name,
+                        'Мобільний телефон' => $leads->phone,
+                        'Назва форми' => ($leads->form_name == 'getDiscont')?'Отримати знижку':'',
                     ]
                 ];
-//                VarDumper::dump(Leads::sendEmail($arr),10,1);
-                Leads::sendEmail($arr);
+
+               Leads::sendToTelegram($array['array']);
+               Leads::sendEmail($array);
+
+
 
                 $leads->save();
             }
+            elseif ($data['data']['form-name'] == 'getPrice'){
+                $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
+                $leads->phone = $data['data']['phone'];
+                $leads->date_create = new Expression('NOW()');
+                $leads->form_name = $data['data']['form-name'];
+                $array = [
+                    'array' => [
+                        'Ім\'я' => $leads->name,
+                        'Мобільний телефон' => $leads->phone,
+                        'Назва форми' => ($leads->form_name == 'getPrice')? 'Дізнатись ціну':'' ,
+                    ]
+                ];
+
+               Leads::sendToTelegram($array['array']);
+               Leads::sendEmail($array);
+                $leads->save();
+            }
+
+
             elseif($data['data']['form-name'] == 'getCatalog' ){
                 $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
                 $leads->phone = $data['data']['phone'];
                 $leads->date_create = new Expression('NOW()');
                 $leads->form_name = $data['data']['form-name'];
-                $arr = [
+                $array = [
                     'array' => [
-                        'name' => $leads->name,
-                        'phone' => $leads->phone,
-                        'forma' => $leads->form_name,
+                        'Ім\'я' => $leads->name,
+                        'Мобільний телефон' => $leads->phone,
+                        'Назва форми' =>  ($leads->form_name == 'getCatalog')? 'Завантажити каталог':'',
                     ]
                 ];
-                Leads::sendEmail($arr);
+
+                Leads::sendToTelegram($array['array']);
+                Leads::sendEmail($array);
                 $leads->save();
+//                $filePath = '/web/files/sss.pdf';
+//                $filename = 'sss.pdf';
+//                $completePath = Yii::getAlias('@frontend'.$filePath);
+////                VarDumper::dump($completePath,10,1);
+//                Yii::$app->response->sendFile($completePath, $filename);
+//                $this->getView()->registerJs("window.location.assign('http://'+window.location.hostname+'/pdf');");
             }
-            elseif ($data['data']['form-name'] == 'getCalculator' ){
+            elseif ($data['data']['form-name'] == 'getCalculator'){
+
+                $leads->name = isset($data['data']['name']) ? $data['data']['name'] : '';
+                $leads->phone = $data['data']['phone'];
+                $leads->form_name = $data['data']['form-name'];
+                $leads->date_create = new Expression('NOW()');
+                $leads->save();
+                $leadset->manufacturer = $data['data']['manifacturer'];
+                $leadset->thickness =$data['data'][ 'depth'];
+                $leadset->square = $data['data']['area'];
+                $leadset->leads_id = $leads->id;
+                $leadset->save();
+                $array = [
+                    'array' => [
+                        'Ім\'я' => $leads->name,
+                        'Мобільний телефон' => $leads->phone,
+                        'Назва форми' =>($leads->form_name == 'getCalculator')? 'Залишіть заявку на розрахунок вашої кровлі':'',
+                        'Виробник' =>$leadset->manufacturer,
+                        'Товщина' =>$leadset->thickness,
+                        'Площа' =>$leadset->square,
+
+                    ]
+                ];
+
+                Leads::sendToTelegram($array['array']);
+              Leads::sendEmail($array);
+
             }
 
         }
 
 
         return $this->render('index');
+    }
+
+    public function actionPdf(){
+//        die('123');
+        $filePath = '/web/files/sss.pdf';
+        $filename = 'sss.pdf';
+        $completePath = Yii::getAlias('@frontend'.$filePath);
+//        VarDumper::dump($completePath,10,1);
+        return Yii::$app->response->sendFile($completePath, 'sss.pdf')->send();
     }
 
     /**
@@ -305,11 +372,4 @@ class SiteController extends Controller
 //            'model' => $model
 //        ]);
 //    }
-    public function actionPdf() {
-        $filePath = '/web/files/sss.pdf';
-        $filename = 'sss.pdf';
-        $completePath = Yii::getAlias('@frontend'.$filePath);
-
-        return Yii::$app->response->sendFile($completePath, 'sss.pdf',['inline'=>true]);
-    }
 }
