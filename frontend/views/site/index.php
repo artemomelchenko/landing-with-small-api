@@ -93,12 +93,12 @@ $this->title = 'ТопДах';
 				<div class="over_line">
 					<nav class="catalog-menu">
 						<ul>
-							<li class="catalog-item active">металочерепиця</li>
-							<li class="catalog-item">профнастил</li>
-							<li class="catalog-item">євробрус</li>
-							<li class="catalog-item">секційна огорожа</li>
-							<li class="catalog-item">комплектуючі</li>
-							<li class="catalog-item">металочерепиця</li>
+							<li class="catalog-item active" data-route="1">металочерепиця</li>
+							<li class="catalog-item" data-route="2">профнастил</li>
+							<li class="catalog-item" data-route="3">євробрус</li>
+							<li class="catalog-item" data-route="4">секційна огорожа</li>
+							<li class="catalog-item" data-route="5">комплектуючі</li>
+							<li class="catalog-item" data-route="6">металочерепиця</li>
 						</ul>
 					</nav>
 					<div class="assortment">
