@@ -191,6 +191,8 @@ class Items extends \yii\db\ActiveRecord
                 $items_settings->save();
             }
         }
+
+        return $item_id;
     }
 
     public static function outputDataForUpdateImgs($id, $colors)

@@ -110,7 +110,7 @@ class Categories extends \yii\db\ActiveRecord
                         'brandsImages' => $itemsSetting['manufacturer']['img'],
                         'price' => $itemsSetting['price'],
                         'propertys' => [
-                            'zinc' => $itemsSetting['zinc'],
+                            'zinc' => $itemsSetting['zinс'],
                             'length' => $item['length'],
                             'height' => $item['height'],
                             'full_weight' => $item['full_weight'],

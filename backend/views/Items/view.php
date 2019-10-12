@@ -27,6 +27,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]) ?>
             </p>
 
+            <?php
+            $array = [];
+            foreach ($model->itemsImg as $key => $value){
+
+                $array = [
+                    'label' => 'Картинка',
+                    'format' => 'raw',
+                    'value' => 'adf'
+                ];
+            }
+
+            ?>
+
             <?= DetailView::widget([
                 'model' => $model,
                 'attributes' => [
@@ -35,9 +48,45 @@ $this->params['breadcrumbs'][] = $this->title;
                     'height',
                     'full_weight',
                     'weight',
-                    'id_categories',
+//                    'id_categories',
                 ],
             ]) ?>
+
+            <?php foreach ($model->itemsImg as $key => $value): ?>
+                <?= DetailView::widget([
+                    'model' => $value,
+                    'attributes' => [
+                        [
+                            'label' => $value->color->name.Html::tag('div', '', ['style' => "background:".$value->color->hex.";width:30px;height:30px;"]).$value->color->hex,
+                            'format' => 'html',
+                            'value' => Html::img('/img/items/' . $value->img, [
+                                'alt' => 'Виробник',
+                                'style' => 'width:150px;'
+                            ])
+                        ]
+                    ],
+                ]) ?>
+            <?php endforeach; ?>
+            <?php foreach ($model->itemsSettings as $k => $setting): ?>
+                <?= DetailView::widget([
+                    'model' => $setting,
+                    'attributes' => [
+                        [
+                            'label' => $setting->manufacturer->name.Html::tag('div', Html::img('/img/manufacturers/' . $setting->manufacturer->img, [
+                                    'alt' => 'Виробник',
+                                    'style' => 'width:150px;'
+                                ])),
+                            'format' => 'html',
+                            'value' => 'Содержание цинка: '.
+                            $setting->zinс.
+                            "<br>Цена: ".
+                            $setting->price.
+                            '<br>Гарантия: '.
+                            $setting->garanty
+                        ]
+                    ],
+                ]) ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

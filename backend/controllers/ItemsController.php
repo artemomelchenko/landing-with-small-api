@@ -88,8 +88,29 @@ class ItemsController extends Controller
      */
     public function actionView($category_id, $id)
     {
+
+        $model = Items::find()
+            ->with(['itemsImg' => function($query)
+            {
+
+                $query
+                    ->with('color')
+                    ->all();
+            }])
+            ->with(['itemsSettings' => function($query)
+            {
+
+                $query
+                    ->with('manufacturer')
+                    ->all();
+            }])
+            ->where(['id' => $id])
+            ->one();
+
+//            VarDumper::dump($model,10,1);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
@@ -136,12 +157,12 @@ class ItemsController extends Controller
         if ($post)
         {
 
-            $model->allSaving($post, $colors, $manufacturers, $id);
+            $item_id = $model->allSaving($post, $colors, $manufacturers, $id);
 
             return $this->redirect([
                 'view',
                 'category_id' => $id,
-                'id' => $model->id
+                'id' => $item_id
             ]);
         }
 
