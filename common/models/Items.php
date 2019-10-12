@@ -155,10 +155,8 @@ class Items extends \yii\db\ActiveRecord
 
                     $items_img->img = $uploadedFileBeginningName;
                 }
-
-                $items_img->id_color = $colors[$k]->id;
+                $items_img->id_color = $colors[$k-1]->id;
                 $items_img->id_item = $item_id;
-//                VarDumper::dump($items_img,10,1);
                 $items_img->save();
             }
         }
