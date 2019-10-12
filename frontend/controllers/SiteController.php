@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Categories;
 use common\models\Leads;
 use common\models\LeadsSettings;
 use frontend\models\ResendVerificationEmailForm;
@@ -82,6 +83,7 @@ class SiteController extends Controller
     {
         $leads = new Leads();
         $leadset = new LeadsSettings();
+        $categories = Categories::find()->all();
 
         if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
@@ -180,7 +182,9 @@ class SiteController extends Controller
         }
 
 
-        return $this->render('index');
+        return $this->render('index', [
+            'categories' => $categories,
+        ]);
     }
 
     public function actionPdf(){

@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
+/* @var $categories \common\models\Categories */
 
 $this->title = 'ТопДах';
 
@@ -93,12 +94,9 @@ $this->title = 'ТопДах';
 				<div class="over_line">
 					<nav class="catalog-menu">
 						<ul>
-							<li class="catalog-item active" data-route="1">металочерепиця</li>
-							<li class="catalog-item" data-route="2">профнастил</li>
-							<li class="catalog-item" data-route="3">євробрус</li>
-							<li class="catalog-item" data-route="4">секційна огорожа</li>
-							<li class="catalog-item" data-route="5">комплектуючі</li>
-							<li class="catalog-item" data-route="6">металочерепиця</li>
+                            <?php foreach ($categories as $category): ?>
+                                <li class="catalog-item active" data-route="<?= $category->id ?>"><?= $category->name ?></li>
+                            <?php endforeach; ?>
 						</ul>
 					</nav>
 					<div class="assortment">
