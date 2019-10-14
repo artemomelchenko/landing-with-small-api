@@ -114,6 +114,17 @@ use kartik\file\FileInput;
                     </div>
                 </div>
             <?php endforeach; ?>
+            <div class="row border-bottom callout callout-info">
+                <div class="col-md-12">
+                    Заполнять, если не заполнены Производители
+                </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'garanty')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
+                </div>
+            </div>
         </div>
     </div>
     <div class="card-footer">

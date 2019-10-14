@@ -15,6 +15,8 @@ use yii\web\UploadedFile;
  * @property string $height
  * @property string $full_weight
  * @property string $weight
+ * @property string $garanty
+ * @property string $price
  * @property int $id_categories
  *
  * @property ColorsItems[] $colorsItems
@@ -42,7 +44,7 @@ class Items extends \yii\db\ActiveRecord
         return [
             [['name', 'id_categories'], 'required'],
             [['id_categories'], 'integer'],
-            [['name', 'length', 'height', 'full_weight', 'weight'], 'string', 'max' => 255],
+            [['name', 'length', 'height', 'full_weight', 'weight', 'garanty', 'price'], 'string', 'max' => 255],
             [['id_categories'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['id_categories' => 'id']],
         ];
     }
@@ -59,6 +61,8 @@ class Items extends \yii\db\ActiveRecord
             'height' => Yii::t('app', 'Height'),
             'full_weight' => Yii::t('app', 'Full Weight'),
             'weight' => Yii::t('app', 'Weight'),
+            'garanty' => Yii::t('app', 'Garanty'),
+            'price' => Yii::t('app', 'Price'),
             'id_categories' => Yii::t('app', 'Id Categories'),
         ];
     }
@@ -129,6 +133,8 @@ class Items extends \yii\db\ActiveRecord
         $item->height = $array['Items']['height'];
         $item->full_weight = $array['Items']['full_weight'];
         $item->weight = $array['Items']['weight'];
+        $item->garanty = $array['Items']['garanty'];
+        $item->price = $array['Items']['price'];
         $item->id_categories = $id_category;
         $item->save();
 
@@ -259,6 +265,8 @@ class Items extends \yii\db\ActiveRecord
         $item->height = $array['Items']['height'];
         $item->full_weight = $array['Items']['full_weight'];
         $item->weight = $array['Items']['weight'];
+        $item->garanty = $array['Items']['garanty'];
+        $item->price = $array['Items']['price'];
         $item->save();
 
         $item_id = $item->id;

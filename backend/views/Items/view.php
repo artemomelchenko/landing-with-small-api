@@ -48,6 +48,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     'height',
                     'full_weight',
                     'weight',
+                    'garanty',
+                    'price',
 //                    'id_categories',
                 ],
             ]) ?>

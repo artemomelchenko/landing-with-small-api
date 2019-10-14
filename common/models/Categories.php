@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\VarDumper;
 use yii\rbac\Item;
 
 /**
@@ -89,6 +90,9 @@ class Categories extends \yii\db\ActiveRecord
             $result['id'] = $categories['id'];
             $result['type'] = $categories['name'];
             $result['name'] = $item['name'];
+            $result['price'] = $item['price'];
+            $result['garanty'] = $item['garanty'];
+
 
             foreach ($item['itemsImg'] as $value)
             {
@@ -122,7 +126,7 @@ class Categories extends \yii\db\ActiveRecord
                     ];
             }
         }
-
+        VarDumper::dump($result,10,1);
         return $result;
     }
 }
