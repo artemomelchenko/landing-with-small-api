@@ -114,12 +114,12 @@ class Categories extends \yii\db\ActiveRecord
                         'brandsImages' => $itemsSetting['manufacturer']['img'],
                         'price' => $itemsSetting['price'],
                         'propertys' => [
-                            'zinc' => $itemsSetting['zinс'],
-                            'length' => $item['length'],
-                            'height' => $item['height'],
-                            'full_weight' => $item['full_weight'],
-                            'weight' => $item['weight'],
-                            'garanty' => $itemsSetting['garanty'],
+                            ['name' => 'Вміст цинку', 'value' => $itemsSetting['zinс']],
+                            ['name' => 'Довжина', 'value' => $itemsSetting['length']],
+                            ['name' => 'Висота', 'value' => $itemsSetting['height']],
+                            ['name' => 'Повна ширина', 'value' => $itemsSetting['full_weight']],
+                            ['name' => 'Корисна ширина', 'value' => $itemsSetting['weight']],
+                            ['name' => 'Гарантія', 'value' => $itemsSetting['garanty']],
                             'premium' => $itemsSetting['premium'],
                             'premium_text' => $itemsSetting['premium_text'],
                         ]
