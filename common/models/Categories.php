@@ -84,20 +84,20 @@ class Categories extends \yii\db\ActiveRecord
 
         $result = [];
 
-        foreach ($categories['items'] as $item)
+        foreach ($categories['items'] as $key => $item)
         {
 
-            $result['id'] = $categories['id'];
-            $result['type'] = $categories['name'];
-            $result['name'] = $item['name'];
-            $result['price'] = $item['price'];
-            $result['garanty'] = $item['garanty'];
+            $result[$key]['id'] = $categories['id'];
+            $result[$key]['type'] = $categories['name'];
+            $result[$key]['name'] = $item['name'];
+            $result[$key]['price'] = $item['price'];
+            $result[$key]['garanty'] = $item['garanty'];
 
 
             foreach ($item['itemsImg'] as $value)
             {
 
-                $result['colorSlider'][] =
+                $result[$key]['colorSlider'][] =
                     [
                         'img' => $value['img'],
                         'color' => $value['color']['hex'],
@@ -108,7 +108,7 @@ class Categories extends \yii\db\ActiveRecord
             foreach ($item['itemsSettings'] as $itemsSetting)
             {
 
-                $result['description'][] =
+                $result[$key]['description'][] =
                     [
                         'name' => $itemsSetting['manufacturer']['name'],
                         'brandsImages' => $itemsSetting['manufacturer']['img'],
@@ -126,6 +126,7 @@ class Categories extends \yii\db\ActiveRecord
                     ];
             }
         }
+//        VarDumper::dump($categories,10,1);
         return $result;
     }
 }
