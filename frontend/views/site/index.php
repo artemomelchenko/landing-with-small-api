@@ -95,7 +95,7 @@ $this->title = 'ТопДах';
 					<nav class="catalog-menu">
 						<ul>
                             <?php foreach ($categories as $category): ?>
-                                <li class="catalog-item active" data-route="<?= $category->id ?>"><?= $category->name ?></li>
+                                <li class="catalog-item" data-route="<?= $category->id ?>"><?= $category->name ?></li>
                             <?php endforeach; ?>
 						</ul>
 					</nav>
