@@ -126,7 +126,6 @@ class Categories extends \yii\db\ActiveRecord
                     ];
             }
         }
-        VarDumper::dump($result,10,1);
         return $result;
     }
 }
