@@ -90,8 +90,8 @@ class Categories extends \yii\db\ActiveRecord
             $result[$key]['id'] = $categories['id'];
             $result[$key]['type'] = $categories['name'];
             $result[$key]['name'] = $item['name'];
-            $result[$key]['price'] = $item['price'];
-            $result[$key]['garanty'] = $item['garanty'];
+//            $result[$key]['price'] = $item['price'];
+//            $result[$key]['garanty'] = $item['garanty'];
 
 
             foreach ($item['itemsImg'] as $value)
@@ -105,28 +105,44 @@ class Categories extends \yii\db\ActiveRecord
                     ];
             }
 
-            foreach ($item['itemsSettings'] as $itemsSetting)
-            {
-
+            if (empty($item['itemsSettings'])){
                 $result[$key]['description'][] =
                     [
-                        'name' => $itemsSetting['manufacturer']['name'],
-                        'brandsImages' => $itemsSetting['manufacturer']['img'],
-                        'price' => $itemsSetting['price'],
+                        'price' => $item['price'],
                         'propertys' => [
-                            ['name' => 'Вміст цинку', 'value' => $itemsSetting['zinс']],
+//                            ['name' => 'Вміст цинку', 'value' => $itemsSetting['zinс']],
                             ['name' => 'Довжина', 'value' => $item['length']],
                             ['name' => 'Висота', 'value' => $item['height']],
                             ['name' => 'Повна ширина', 'value' => $item['full_weight']],
                             ['name' => 'Корисна ширина', 'value' => $item['weight']],
-                            ['name' => 'Гарантія', 'value' => $itemsSetting['garanty']],
-                            'premium' => $itemsSetting['premium'],
-                            'premium_text' => $itemsSetting['premium_text'],
+                            ['name' => 'Гарантія', 'value' => $item['garanty']],
+//                            'premium' => $itemsSetting['premium'],
+//                            'premium_text' => $itemsSetting['premium_text'],
                         ]
                     ];
+            }else{
+                foreach ($item['itemsSettings'] as $itemsSetting)
+                {
+
+                    $result[$key]['description'][] =
+                        [
+                            'name' => $itemsSetting['manufacturer']['name'],
+                            'brandsImages' => $itemsSetting['manufacturer']['img'],
+                            'price' => $itemsSetting['price'],
+                            'propertys' => [
+                                ['name' => 'Вміст цинку', 'value' => $itemsSetting['zinс']],
+                                ['name' => 'Довжина', 'value' => $item['length']],
+                                ['name' => 'Висота', 'value' => $item['height']],
+                                ['name' => 'Повна ширина', 'value' => $item['full_weight']],
+                                ['name' => 'Корисна ширина', 'value' => $item['weight']],
+                                ['name' => 'Гарантія', 'value' => $itemsSetting['garanty']],
+                                'premium' => $itemsSetting['premium'],
+                                'premium_text' => $itemsSetting['premium_text'],
+                            ]
+                        ];
+                }
             }
         }
-//        VarDumper::dump($categories,10,1);
         return $result;
     }
 }
