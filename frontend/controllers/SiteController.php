@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use common\models\Categories;
 use common\models\Leads;
 use common\models\LeadsSettings;
+use common\models\Manufacturers;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -84,6 +85,7 @@ class SiteController extends Controller
         $leads = new Leads();
         $leadset = new LeadsSettings();
         $categories = Categories::find()->all();
+        $manufacturers = Manufacturers::find()->all();
 
         if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
@@ -184,6 +186,7 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'categories' => $categories,
+            'manufacturers' => $manufacturers,
         ]);
     }
 

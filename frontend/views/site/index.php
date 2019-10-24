@@ -420,10 +420,9 @@ $this->title = 'ТопДах';
                             <label for="Manifacturer" class="manifacturer"> виробник:</label>
                             <select size="1" name="manifacturer" id="Manifacturer" class="manifacturer_" required>
                                 <option value="" disabled>оберіть виробника</option>
-                                <option value="Чебурашка">Чебурашка</option>
-                                <option selected value="Крокодил Гена">Крокодил Гена</option>
-                                <option value="Шапокляк">Шапокляк</option>
-                                <option value="Крыса Лариса">Крыса Лариса</option>
+                                <?php foreach ($manufacturers as $manufacturer): ?>
+                                <option value="<?= $manufacturer->name ?>"><?= $manufacturer->name ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form_field">
