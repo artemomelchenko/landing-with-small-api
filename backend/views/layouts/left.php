@@ -1,7 +1,4 @@
 <?php
-
-use common\models\Leads;
-
 ?>
 <aside class="main-sidebar elevation-4 sidebar-light-primary">
     <a href="/admin/" class="brand-link">
@@ -18,24 +15,32 @@ use common\models\Leads;
                             Заявки
                         </p>
                     </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/categories" class="nav-link <?= Yii::$app->controller->id == 'categories' ? 'active' : '' ?>">
                         <i class="fas fa-exchange-alt"></i>
                         <p>
                             Категории
                         </p>
                     </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/manufacturers" class="nav-link <?= Yii::$app->controller->id == 'manufacturers' ? 'active' : '' ?>">
                         <i class="fas fa-tools"></i>
                         <p>
                             Производители
                         </p>
                     </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/colors" class="nav-link <?= Yii::$app->controller->id == 'colors' ? 'active' : '' ?>">
                         <i class="fas fa-palette"></i>
                         <p>
                             Цвета
                         </p>
                     </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/items" class="nav-link <?= Yii::$app->controller->id == 'items' ? 'active' : '' ?>">
                         <i class="fas fa-sitemap"></i>
                         <p>

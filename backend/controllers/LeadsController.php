@@ -27,7 +27,7 @@ class LeadsController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view', 'index', 'create', 'update', 'delete'],
+                        'actions' => ['view', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -51,7 +51,7 @@ class LeadsController extends Controller
     {
         $searchModel = new LeadsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-//            VarDumper::dump($dataProvider,10,1);
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

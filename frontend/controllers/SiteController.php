@@ -188,11 +188,9 @@ class SiteController extends Controller
     }
 
     public function actionPdf(){
-//        die('123');
         $filePath = '/web/files/sss.pdf';
         $filename = 'sss.pdf';
         $completePath = Yii::getAlias('@frontend'.$filePath);
-//        VarDumper::dump($completePath,10,1);
         return Yii::$app->response->sendFile($completePath, 'sss.pdf')->send();
     }
 

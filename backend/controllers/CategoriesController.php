@@ -6,7 +6,6 @@ use Yii;
 use common\models\Categories;
 use common\models\CategoriesSearch;
 use yii\filters\AccessControl;
-use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -79,7 +78,6 @@ class CategoriesController extends Controller
     {
         $model = new Categories();
 
-//        VarDumper::dump(Yii::$app->user->identity,10,1);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }

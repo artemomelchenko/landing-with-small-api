@@ -15,10 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <!--    <h1>--><? //= Html::encode($this->title) ?><!--</h1>-->
 
-    <p>
-        <!--        --><? //= Html::a(Yii::t('app', 'Create Items'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     <div class="card">
         <div class="card-body">
@@ -28,7 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
 
-//            'id',
                     'name',
                     [
                         'class' => 'yii\grid\ActionColumn',

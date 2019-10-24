@@ -79,30 +79,24 @@ class ManufacturersController extends Controller
     public function actionCreate()
     {
         $model = new Manufacturers();
-     if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post())) {
 
-        $image = UploadedFile::getInstance($model, 'img');
-//            VarDumper::dump($image,10,1);
-        if (!is_null($image)) {
-            $ext = end((explode(".", $image->name)));
-            $avatar = Yii::$app->security->generateRandomString().".{$ext}";
-            Yii::$app->params['uploadPath'] = Yii::getAlias('@frontend').'/web/img/manufacturers/' . $avatar;
-            $path = Yii::$app->params['uploadPath'];
-            $image->saveAs($path);
-            $model->img = $avatar;
-        }
-        if ($model->save()) {
-//            VarDumper::dump($model,10,1);
-            return $this->redirect(['view', 'id' => $model->id]);
+            $image = UploadedFile::getInstance($model, 'img');
+
+            if (!is_null($image)) {
+                $ext = end((explode(".", $image->name)));
+                $avatar = Yii::$app->security->generateRandomString() . ".{$ext}";
+                Yii::$app->params['uploadPath'] = Yii::getAlias('@frontend') . '/web/img/manufacturers/' . $avatar;
+                $path = Yii::$app->params['uploadPath'];
+                $image->saveAs($path);
+                $model->img = $avatar;
+            }
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
         }
 
-    }
-//
-//
-//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['view', 'id' => $model->id]);
-//        }
-//
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -123,12 +117,12 @@ class ManufacturersController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             $image = UploadedFile::getInstance($model, 'img');
-            if (is_null($image)){
+            if (is_null($image)) {
                 $model->img = $old_img;
-            }else{
+            } else {
                 $ext = end((explode(".", $image->name)));
-                $avatar = Yii::$app->security->generateRandomString().".{$ext}";
-                Yii::$app->params['uploadPath'] = Yii::getAlias('@frontend').'/web/img/manufacturers/' . $avatar;
+                $avatar = Yii::$app->security->generateRandomString() . ".{$ext}";
+                Yii::$app->params['uploadPath'] = Yii::getAlias('@frontend') . '/web/img/manufacturers/' . $avatar;
                 $path = Yii::$app->params['uploadPath'];
                 $image->saveAs($path);
                 $model->img = $avatar;
@@ -136,8 +130,9 @@ class ManufacturersController extends Controller
 
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
-            }  else {
-                VarDumper::dump($model->getErrors()); die();
+            } else {
+                VarDumper::dump($model->getErrors());
+                die();
             }
         }
 

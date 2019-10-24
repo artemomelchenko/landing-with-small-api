@@ -11,7 +11,6 @@ use Yii;
  * @property string $name
  * @property string $hex
  *
- * @property ColorsItems[] $colorsItems
  * @property Items[] $items
  */
 class Colors extends \yii\db\ActiveRecord

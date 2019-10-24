@@ -10,13 +10,10 @@ use common\models\Manufacturers;
 use Yii;
 use common\models\Items;
 use common\models\ItemsSearch;
-use yii\base\Model;
 use yii\filters\AccessControl;
-use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
  * ItemsController implements the CRUD actions for Items model.
@@ -51,14 +48,6 @@ class ItemsController extends Controller
                 ]
             ]
         ];
-//        return [
-//            'verbs' => [
-//                'class' => VerbFilter::className(),
-//                'actions' => [
-//                    'delete' => ['POST'],
-//                ],
-//            ],
-//        ];
     }
 
     /**
@@ -107,8 +96,6 @@ class ItemsController extends Controller
             ->where(['id' => $id])
             ->one();
 
-//            VarDumper::dump($model,10,1);
-
         return $this->render('view', [
             'model' => $model,
         ]);
@@ -118,7 +105,7 @@ class ItemsController extends Controller
     {
         $searchModel = new ItemsSearch();
         $dataProvider = $searchModel->searches(Yii::$app->request->queryParams, $id);
-//        VarDumper::dump($dataProvider,10,1);
+
         return $this->render('item', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

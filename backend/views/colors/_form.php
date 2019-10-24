@@ -16,7 +16,6 @@ use \kartik\color\ColorInput;
 
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-            <!--    --><? //= $form->field($model, 'hex')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'hex')->widget(ColorInput::classname(), [
                 'options' => ['placeholder' => 'Выберите цвет ...'],
             ]); ?>

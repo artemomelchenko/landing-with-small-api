@@ -30,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= DetailView::widget([
                 'model' => $model,
                 'attributes' => [
-//            'id',
                     'name',
                     [
                         'label' => 'Картинка',
@@ -43,8 +42,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         },
                     ],
                 ],
-
-//            ['class' => 'yii\grid\ActionColumn'],
 
             ]) ?>
         </div>

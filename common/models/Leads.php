@@ -60,9 +60,7 @@ class Leads extends \yii\db\ActiveRecord
         return $this->hasOne(LeadsSettings::className(), ['leads_id' => 'id']);
     }
     public static function sendToTelegram(array $arr){
-//        if($['forma'] ==''){
-//
-//        }
+
         $token ='698566873:AAH29686LePlwWf4nkCWA-h883KhKp5uGow';
         $chat_id = '-361536928';
 

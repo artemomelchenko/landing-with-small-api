@@ -3,7 +3,6 @@
 namespace common\models;
 
 use Yii;
-use yii\helpers\VarDumper;
 use yii\rbac\Item;
 
 /**
@@ -90,9 +89,6 @@ class Categories extends \yii\db\ActiveRecord
             $result[$key]['id'] = $categories['id'];
             $result[$key]['type'] = $categories['name'];
             $result[$key]['name'] = $item['name'];
-//            $result[$key]['price'] = $item['price'];
-//            $result[$key]['garanty'] = $item['garanty'];
-
 
             foreach ($item['itemsImg'] as $value)
             {
@@ -110,14 +106,11 @@ class Categories extends \yii\db\ActiveRecord
                     [
                         'price' => $item['price'],
                         'propertys' => [
-//                            ['name' => 'Вміст цинку', 'value' => $itemsSetting['zinс']],
                             ['name' => 'Довжина', 'value' => $item['length']],
                             ['name' => 'Висота', 'value' => $item['height']],
                             ['name' => 'Повна ширина', 'value' => $item['full_weight']],
                             ['name' => 'Корисна ширина', 'value' => $item['weight']],
                             ['name' => 'Гарантія', 'value' => $item['garanty']],
-//                            'premium' => $itemsSetting['premium'],
-//                            'premium_text' => $itemsSetting['premium_text'],
                         ]
                     ];
             }else{

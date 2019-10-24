@@ -3,8 +3,6 @@
 namespace common\models;
 
 use Yii;
-use yii\helpers\VarDumper;
-use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "items".
@@ -19,11 +17,9 @@ use yii\web\UploadedFile;
  * @property string $price
  * @property int $id_categories
  *
- * @property ColorsItems[] $colorsItems
  * @property Colors[] $colors
  * @property Categories $categories
  * @property ItemsSettings[] $itemsSettings
- * @property ManufacturersItems[] $manufacturersItems
  * @property Manufacturers[] $manufacturers
  */
 class Items extends \yii\db\ActiveRecord

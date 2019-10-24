@@ -26,13 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
 
-//            'id',
                     'name',
-//                    'length',
-//                    'height',
-//                    'full_weight',
-//                    'weight',
-                    //'id_categories',
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'template' => '{view} {update} {delete}',

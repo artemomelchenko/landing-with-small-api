@@ -66,6 +66,8 @@ class LeadsSearch extends Leads
             ->andFilterWhere(['like', 'phone', $this->phone])
             ->andFilterWhere(['like', 'leadsSettings.comment', $this->leadsSettings->comment]);
 
+        $query->orderBy('id desc');
+
         return $dataProvider;
     }
 }

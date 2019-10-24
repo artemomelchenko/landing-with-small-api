@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use yii\helpers\Html;
@@ -26,28 +27,28 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <div id="eclipse"></div>
-						<div id="gratitude" class="">
-							<img src="img/success.svg" alt="">
-							<h3>дякуємо</h3>
-							<p>вашу заявку успішно <br/> відправлено</p>
-						</div>
-						<div class="popup">
-								<div class="button_close"></div>
-							<h3 class="heading_form">отримати знижку</h3>
+<div id="gratitude" class="">
+    <img src="img/success.svg" alt="">
+    <h3>дякуємо</h3>
+    <p>вашу заявку успішно <br/> відправлено</p>
+</div>
+<div class="popup">
+    <div class="button_close"></div>
+    <h3 class="heading_form">отримати знижку</h3>
 
-                                <?= Html::beginForm('', 'post', ['class'=>'first_form', 'id'=>'popup_form']) ?>
-								<label for="firstNname" class="first_name"> ваше ім'я:</label>
-								<input id="firstNname" class="name" type="text" name="first_name"  minlength="2" required >
-								<label for="phone" class="phone"> ваш номер:</label>
-								<input id="phone" class="tel" type="text" name="phone" required>
-								<button class="btn_product_discont" type="submit">надіслати</button>
-								<div class="decoration">
-									<img class="locker" src="img/Frame.png" alt="locker image">
-									<span class="saif">ваші данні в безпеці</span>
-								</div>
-                                <?= Html::endForm() ?>
+    <?= Html::beginForm('', 'post', ['class' => 'first_form', 'id' => 'popup_form']) ?>
+    <label for="firstNname" class="first_name"> ваше ім'я:</label>
+    <input id="firstNname" class="name" type="text" name="first_name" minlength="2" required>
+    <label for="phone" class="phone"> ваш номер:</label>
+    <input id="phone" class="tel" type="text" name="phone" required>
+    <button class="btn_product_discont" type="submit">надіслати</button>
+    <div class="decoration">
+        <img class="locker" src="img/Frame.png" alt="locker image">
+        <span class="saif">ваші данні в безпеці</span>
+    </div>
+    <?= Html::endForm() ?>
 
-						</div>
+</div>
 <main>
     <ul id="section_scroll" class="navigator">
         <li class="nav-item active" data-order="1"><a href="#header">Головна</a><span class="nav-line"></span></li>
@@ -76,39 +77,39 @@ AppAsset::register($this);
         <header id="header" class="over_line">
             <div class="header_grid_container grid">
                 <div class="logo">
-                <img src="img/logo.svg" alt="logo Top_dah">
+                    <img src="img/logo.svg" alt="logo Top_dah">
                 </div>
                 <div class="header_location">
                     <ul>
                         <li><img src="img/icon_location.svg" alt="icon_location"></li>
-                        <li> <span class="header_location_text" >м. Чернівці <br> вул. Головна 115</span></li>
+                        <li><span class="header_location_text">м. Чернівці <br> вул. Головна 115</span></li>
                     </ul>
                 </div>
                 <div class="header_phone">
                     <ul>
-                        <li> <a href="tel:+380000000000"> <img src="img/icon_phone.svg" alt="icon_phone"></a></li>
-                        <li><span class="header_location_text" >0 50 50 50 255 <br> 0 50 50 50 255</span></li>
+                        <li><a href="tel:+380000000000"> <img src="img/icon_phone.svg" alt="icon_phone"></a></li>
+                        <li><span class="header_location_text">0 50 50 50 255 <br> 0 50 50 50 255</span></li>
                     </ul>
                 </div>
-        <?= $content ?>
+                <?= $content ?>
                 <footer id="footer">
-                <div class="background-animation white">
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
-				</div>
+                    <div class="background-animation white">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
                     <div class="vertical_text">
                         <p> контакти</p>
                     </div>
                     <div class="over_line">
                         <h2 class="headihg_advantage pl">завітайте до нас в офіс</h2>
                         <p class="footer_text pl">де представленні зразки продукції
-                            та отрімайте детальний  розрахунок усіх елементів безкоштовно
+                            та отрімайте детальний розрахунок усіх елементів безкоштовно
                         </p>
                         <div class="footer_grid_container grid">
                             <div class="img_box grid">

@@ -29,11 +29,9 @@ use kartik\file\FileInput;
                     <?php foreach ($colors as $k => $color): ?>
                     <div class="row border-bottom callout callout-info">
                         <div class="col-md-3">
-<!--                            --><?//= Html::checkbox($color->id, false/*, \yii\helpers\ArrayHelper::map($colors, 'id', 'name')*/) ?>
                             <div class="row">
                                 <div class="col-md-12">
                                     <?= $color->name ?>
-<!--                                    --><?php //\yii\helpers\VarDumper::dump($color['boolean'],10,1) ?>
                                     <?= $form->field($color, 'boolean['.$color->id.']')->checkbox()->label(false) ?>
                                 </div>
                                 <div class="col-md-12">
@@ -42,7 +40,6 @@ use kartik\file\FileInput;
                             </div>
                         </div>
                         <div class="col-md-9">
-<!--                            --><?php //\yii\helpers\VarDumper::dump($itemsImg[$k]->img,10,1) ?>
                             <?= $form->field($itemsImg[$k], 'img['.$color->id.']')->widget(FileInput::classname(), [
                               'options' => ['accept' => 'image/*'],
                                 'pluginOptions' => [
@@ -98,7 +95,6 @@ use kartik\file\FileInput;
                                 <?= $form->field($itemsSettings[$key], 'zinс['.$manufacturer->id.']')->textInput(['maxlength' => true]) ?>
                             </div>
                             <div class="col-md-2">
-<!--                                --><?php //\yii\helpers\VarDumper::dump($itemsSettings[$key],10,1) ?>
                                 <?= $form->field($itemsSettings[$key], 'price['.$manufacturer->id.']')->textInput(['maxlength' => true]) ?>
                             </div>
                             <div class="col-md-2">
@@ -132,35 +128,3 @@ use kartik\file\FileInput;
     </div>
     <?php ActiveForm::end(); ?>
 </div>
-<script>
-    function handleFileSelect(evt) {
-    //     var files = evt.target.files; // FileList object
-    //
-    //     // Loop through the FileList and render image files as thumbnails.
-    //     for (var i = 0, f; f = files[i]; i++) {
-    //
-    //         // Only process image files.
-    //         if (!f.type.match('image.*')) {
-    //             continue;
-    //         }
-    //
-    //         var reader = new FileReader();
-    //
-    //         // Closure to capture the file information.
-    //         reader.onload = (function(theFile) {
-    //             return function(e) {
-    //                 // Render thumbnail.
-    //                 var span = document.createElement('span');
-    //                 span.innerHTML = ['<img class="thumb" src="', e.target.result,
-    //                     '" title="', escape(theFile.name), '"/>'].join('');
-    //                 document.getElementById('list').insertBefore(span, null);
-    //             };
-    //         })(f);
-    //
-    //         // Read in the image file as a data URL.
-    //         reader.readAsDataURL(f);
-    //     }
-    // }
-    //
-    // document.getElementById('files').addEventListener('change', handleFileSelect, false);
-</script>
