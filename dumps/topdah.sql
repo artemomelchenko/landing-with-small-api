@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 14 2019 г., 10:29
+-- Время создания: Окт 24 2019 г., 18:21
 -- Версия сервера: 5.6.41
 -- Версия PHP: 7.1.22
 
@@ -70,17 +70,6 @@ INSERT INTO `colors` (`id`, `name`, `hex`) VALUES
 (6, 'RAL 6020', '#354733'),
 (7, 'RAL 9006', '#a5a8a6'),
 (8, 'RAL 7024', '#474a50');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `colors_items`
---
-
-CREATE TABLE `colors_items` (
-  `colors_id` int(11) NOT NULL DEFAULT '0',
-  `items_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -521,17 +510,6 @@ INSERT INTO `manufacturers` (`id`, `name`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `manufacturers_items`
---
-
-CREATE TABLE `manufacturers_items` (
-  `manufacturers_id` int(11) NOT NULL DEFAULT '0',
-  `items_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Структура таблицы `migration`
 --
 
@@ -559,7 +537,8 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 ('m190925_132509_create_junction_table_for_colors_and_items_tables', 1570113014),
 ('m190925_132549_create_junction_table_for_manufacturers_and_items_tables', 1570113014),
 ('m191004_103840_items_img', 1570520326),
-('m191014_064600_items', 1571036115);
+('m191014_064600_items', 1571036115),
+('m191024_123057_bm_stat_ip', 1571920817);
 
 -- --------------------------------------------------------
 
@@ -604,14 +583,6 @@ ALTER TABLE `colors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `colors_items`
---
-ALTER TABLE `colors_items`
-  ADD PRIMARY KEY (`colors_id`,`items_id`),
-  ADD KEY `idx-colors_items-colors_id` (`colors_id`),
-  ADD KEY `idx-colors_items-items_id` (`items_id`);
-
---
 -- Индексы таблицы `items`
 --
 ALTER TABLE `items`
@@ -652,14 +623,6 @@ ALTER TABLE `leads_settings`
 --
 ALTER TABLE `manufacturers`
   ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `manufacturers_items`
---
-ALTER TABLE `manufacturers_items`
-  ADD PRIMARY KEY (`manufacturers_id`,`items_id`),
-  ADD KEY `idx-manufacturers_items-manufacturers_id` (`manufacturers_id`),
-  ADD KEY `idx-manufacturers_items-items_id` (`items_id`);
 
 --
 -- Индексы таблицы `migration`
@@ -739,13 +702,6 @@ ALTER TABLE `user`
 --
 
 --
--- Ограничения внешнего ключа таблицы `colors_items`
---
-ALTER TABLE `colors_items`
-  ADD CONSTRAINT `fk-colors_items-colors_id` FOREIGN KEY (`colors_id`) REFERENCES `colors` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk-colors_items-items_id` FOREIGN KEY (`items_id`) REFERENCES `items` (`id`) ON DELETE CASCADE;
-
---
 -- Ограничения внешнего ключа таблицы `items`
 --
 ALTER TABLE `items`
@@ -769,13 +725,6 @@ ALTER TABLE `items_settings`
 --
 ALTER TABLE `leads_settings`
   ADD CONSTRAINT `fk-leads_settings-leads_id` FOREIGN KEY (`leads_id`) REFERENCES `leads` (`id`) ON DELETE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `manufacturers_items`
---
-ALTER TABLE `manufacturers_items`
-  ADD CONSTRAINT `fk-manufacturers_items-items_id` FOREIGN KEY (`items_id`) REFERENCES `items` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk-manufacturers_items-manufacturers_id` FOREIGN KEY (`manufacturers_id`) REFERENCES `manufacturers` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
